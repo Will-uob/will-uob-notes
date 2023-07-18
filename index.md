@@ -5,7 +5,11 @@ title: Home
 
 # The Exocore Package
 
-[![](/images/exocore.png)](/articles/exocore%20installation%20instructions/)
+[![](/images/Dostoyevsky.jpg)]
+
+Hello, welcome to my website!
+
+I'll be updating mini-writeups on anything that I want to remember in the future in detail.
 
 ## Executive Summary
 
