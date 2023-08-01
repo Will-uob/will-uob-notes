@@ -3,7 +3,7 @@ published: true
 topic: Installing Gentoo
 subtitle: 
 date: 2022-10-25
-tags: AI, ML
+tags: AI ML
 ---
 
 <br>
