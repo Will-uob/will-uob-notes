@@ -29,11 +29,11 @@ universal approximation theorem, and makes neural networks suitable for many kin
 These will be explained in later posts.
 
 The programs we use as neural networks are called models. This leads us to preload some Jargon:
-    - The blueprint of a *model* is the *architecture*,
-    - *Weights* are called *parameters*,
-    - Predictions are calculated from the *independent variable*, data not including labels,
-    - Results of the model are predictions,
-    - The measure of *performance* is the *loss*,
-    - The loss depends not only on the predictions, but also the correct labels.
+- The blueprint of a **model** is the **architecture**,
+- *Weights* are called **parameters**,
+- Predictions are calculated from the **independent variable**, data not including labels,
+- Results of the model are predictions,
+- The measure of **performance** is the **loss**,
+- The loss depends not only on the predictions, but also the correct labels.
 
 ![Diagram of the model working](/images/modeljargon.png)
