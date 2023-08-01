@@ -1,8 +1,3 @@
-# Notes on the first chapter and first lesson for FASTAI course
-
-## The theory
-
-### What is machine learning? What is a neural network?
 ---
 published: true
 topic: Installing Gentoo
@@ -12,6 +7,12 @@ tags: linux, gentoo, filesystems
 ---
 
 <br>
+
+# Notes on the first chapter and first lesson for FASTAI course
+
+## The theory
+
+### What is machine learning? What is a neural network?
 
 Machine learning is allowing a computer to learn from experience, rather than explicitly telling it what to do. 
 
