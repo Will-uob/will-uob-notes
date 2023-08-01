@@ -5,7 +5,7 @@ title: Home
 
 # The Exocore Package
 
-[![](/images/Dostoyevsky.jpg)]
+[!(/images/Dostoyevsky.jpg)]
 
 Hello, welcome to my website!
 
