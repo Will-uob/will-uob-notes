@@ -35,4 +35,4 @@ The programs we use as neural networks are called models. This leads us to prelo
     - The measure of *performance* is the *loss*,
     - The loss depends not only on the predictions, but also the correct labels.
 
-![Diagram of the model working](/Images/ModelJargon.png)
+![Diagram of the model working](/images/modeljargon.png)
