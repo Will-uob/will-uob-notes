@@ -3,7 +3,7 @@ published: true
 topic: Installing Gentoo
 subtitle: 
 date: 2022-10-25
-tags: linux, gentoo, filesystems
+tags: AI, ML
 ---
 
 <br>
