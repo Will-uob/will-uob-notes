@@ -98,7 +98,35 @@ tensors, as a tensor is acts as a Numpy array with extra restrictions, such as o
 Tensors have many useful features which you'll see in my notebooks, such as stacking, broadcasting, calculating derivatives of operations and working on the GPU. Broadcasting is the automatic expansion
 of smaller rank tensors [^1] to have the same size as the other during operations.
 
+### Stochastic Gradient Descent and learning rates
+
+In deep learning we use [SGD](https://realpython.com/gradient-descent-algorithm-python/) and learning rates to update our weights to make them better. The process goes as follows:
+
+1. Initialise the weights, usually randomly,
+2. We use these weights to inform our predictions,
+3. We calculate our loss, based off our loss function,
+4. We calculate our gradient, measures for each weights telling us how changing them would change the loss,
+5. We change all of our weights based on step four,
+6. We repeat steps 2-5 until we are satisfied.
+
+![Diagram of the above process](/images/UpdateWeights.png)
+
+The process of calculating gradients in PyTorch will be included in the notebooks. However, note two things. First, PyTorch is able to automatically compute the derivative of nearly any function.
+Secondly, we need to understand [backpropagation](https://en.wikipedia.org/wiki/Backpropagation), the process of calculating the derivative of each layer.
+
+The learning rate is used in nearly all approaches regarding changing parameters. It involves updating the weights using the operation ``` w -= gradient(w) * lr```. The learning rate is usually a small value,
+between 0.1 and 0.001. Please be careful when choosing the learning rate, as choosing a nonoptimal learning rate can lead to many issues[^2].
+
+In summary, our weights can either be randomly chosen or taken from a pretrained model. We then use the loss function to compare predictions to target labels. To improve our loss, we must use calculus to
+calculate the gradients of our weights, so we may alter them. The gradient signifies how big a step we must take.
+
+### How does a neural network function?
+
+The practical implementation is covered in the notes, but this section will go purely over the theory introduced there.
 
 [^1]: The rank of a tensor is the number of axes or dimensions in a tensor.
-      On a similar note, the shape of a tensor is the size of each axis of a tensor. 
+      On a similar note, the shape of a tensor is the size of each axis of a tensor.
+[^2]: If the LR is too small, it will take many jumps to reach the optimal weight. If the LR is too big, we have two possibilities. Either:
+      a. The weight's value will diverge away from the optimal value,
+      b. The weight's value will bounce around the optimal value.
 
