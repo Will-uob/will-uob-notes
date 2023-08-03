@@ -13,11 +13,11 @@ tags: Chinese 中文 Languages
 我是英国人。我爸爸和奶奶和妹妹也英国人。我妈妈不是英国人，她是斯洛伐克人。 我住在西米德兰兹郡。
 我的家有7口人。我还有三个宠物。他们非常可爱！
 
-### 剧本: 三学生。[1^]
+### 剧本: 三学生。[^1]
 
-A正在完 [2^] 吃饭了 [3^] 。B在学习中文。A和B等上课。A和B是学生。
+A正在完 [^2] 吃饭了 [^3] 。B在学习中文。A和B等上课。A和B是学生。
 
-A：我今天吃饭鸡蛋了 [4^] 。你喜欢吃鸡蛋吗？
+A：我今天吃饭鸡蛋了 [^4] 。你喜欢吃鸡蛋吗？
 
 B: 我喜欢吃鸡蛋。你昨天做了作业吗？
 
@@ -56,10 +56,12 @@ Thanks to these corrections, a number of grammar points have come to my attentio
 - [刚才](https://resources.allsetlearning.com/chinese/grammar/Expressing_"just_now"_with_"gangcai")
 - [刚](https://resources.allsetlearning.com/chinese/grammar/Expressing_"just"_with_"gang")
 
-[1^]: You always need a measure word connecting numbers and nouns in Chinese. It should be either 三个学生/三位学生/三名学生. When in doubt, use 个. 
 
-[2^]: 完 is an auxiliary verb that always goes after the main verb. For example: 吃完饭 = Finished eating. So, 吃饭完 is wrong.
 
-[3^]: You can't use 正在 and 完 together, they're contradictory. To say just finished you can say 刚吃完饭. 
+[^1]: You always need a measure word connecting numbers and nouns in Chinese. It should be either 三个学生/三位学生/三名学生. When in doubt, use 个. 
 
-[4^]: You should use 吃鸡蛋 instead of 吃饭鸡蛋.
+[^2]: 完 is an auxiliary verb that always goes after the main verb. For example: 吃完饭 = Finished eating. So, 吃饭完 is wrong.
+
+[^3]: You can't use 正在 and 完 together, they're contradictory. To say just finished you can say 刚吃完饭. 
+
+[^4]: You should use 吃鸡蛋 instead of 吃饭鸡蛋.
