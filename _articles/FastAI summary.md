@@ -96,6 +96,9 @@ tensors, as a tensor is acts as a Numpy array with extra restrictions, such as o
 [jagged](https://en.wikipedia.org/wiki/Jagged_array).
 
 Tensors have many useful features which you'll see in my notebooks, such as stacking, broadcasting, calculating derivatives of operations and working on the GPU. Broadcasting is the automatic expansion
-of smaller rank tensors
-   [^1]: The rank of a tensor is the number of axes or dimensions in a tensor. On a similar note, the shape of a tensor is the size of each axis of a tensor.
-to have the same size as another during operations.
+of smaller rank tensors [^1] to have the same size as the other during operations.
+
+
+[^1]: The rank of a tensor is the number of axes or dimensions in a tensor.
+      On a similar note, the shape of a tensor is the size of each axis of a tensor. 
+
