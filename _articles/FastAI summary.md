@@ -126,6 +126,7 @@ The practical implementation is covered in the notes, but this section will go p
 
 [^1]: The rank of a tensor is the number of axes or dimensions in a tensor.
       On a similar note, the shape of a tensor is the size of each axis of a tensor.
+
 [^2]: If the LR is too small, it will take many jumps to reach the optimal weight. If the LR is too big, we have two possibilities. Either:
       a. The weight's value will diverge away from the optimal value,
       b. The weight's value will bounce around the optimal value.
