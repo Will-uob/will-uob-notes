@@ -11,7 +11,7 @@ tags: AI ML FastAI
 This will be a summary of the theory and concepts introduced in the FastBook and FastAI course that I've covered so far. As for the practical, I suggest you visit
 my [kaggle](https://www.kaggle.com/williamkasafir) page, where I'll be trying to build projects based on the concepts introduced in the course.
 
-# Notes on the first chapter of FastBook
+# Notes on the first chapter of the Fastbook
 
 ### What is machine learning? What is deep learning?
 
@@ -64,7 +64,7 @@ functionality for our task, and will therefore be ineffective. The validation se
 But what about the test set? Most models go through augmentations of their architectures, modifying learning rates, data augmentation strategies, and so on. These are known as *hyperparameters*.
 The problem is that we can overfit these hyperparameters, so we use the test set (which has data unseen even to us) to prevent subconciously choosing hyperparameters to fit our validation data.
 
-# Notes on the second chapter for the FastBook
+# Notes on the second chapter of the Fastbook
 
 ### Advice on building projects
 Make sure to build your own projects, considering carefully the data avaliability, using end-to-end iterations. Each iteration should see both improvements and shifts in where difficulties lie.
@@ -83,6 +83,19 @@ repating this process every epoch. It's important to note, however, that these m
 
 ### Confusion Matrices and cleaning data
 Show a matrix where the rows are the actual labels and the columns are the predictions, showing where the model went wrong. We can also plot these losses and clean them. For example, an
-image prediction model will plot images with the highest loss. The loss in this case is a number that is higher if the model is incorrect and confident, or correct but unconfident. One of the causes of
-this might be that the data you have contains data unsuitable for your task. In the example in the book, a bear classifier, some images were of teddy bears, which caused a high loss. In this case, we unlink
-these images from the training, validation and data sets.
+image prediction model will plot images with the highest loss. The loss in this case is a number that is higher if the model is incorrect and confident, or correct but unconfident.
+
+One of the causes of this might be that the data you have contains data unsuitable for your task. In the example in the book, a bear classifier, some images were of teddy bears, which caused a high loss. In
+this case, we unlink these images from the training, validation and data sets.
+
+# Notes on the third chapter of the Fastbook
+
+### Tensors, arrays and their properties
+When working with deep learning in Python, we often store our data in either Numpy arrays or PyTorch tensors. Both these data structures possess intresting properties, but it's only worthwhile covering
+tensors, as a tensor is acts as a Numpy array with extra restrictions, such as only being able to use simple, basic numeric types. This means that unlike Numpy arrays, tensors cannot be
+[jagged](https://en.wikipedia.org/wiki/Jagged_array).
+
+Tensors have many useful features which you'll see in my notebooks, such as stacking, broadcasting, calculating derivatives of operations and working on the GPU. Broadcasting is the automatic expansion
+of smaller rank tensors
+   [^1]: The rank of a tensor is the number of axes or dimensions in a tensor. On a similar note, the shape of a tensor is the size of each axis of a tensor.
+to have the same size as another during operations.
