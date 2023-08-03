@@ -8,12 +8,10 @@ tags: AI ML FastAI
 
 <br>
 
+This will be a summary of the theory and concepts introduced in the FastBook and FastAI course that I've covered so far. As for the practical, I suggest you visit
+my [kaggle](https://www.kaggle.com/williamkasafir) page, where I'll be trying to build projects based on the concepts introduced in the course.
+
 # Notes on the first chapter of FastBook
-
-This will be a summary of the theory and concepts introduced in the FastBook and FastAI course that I've covered so far. As for the practical, I suggest you visit my [kaggle](https://www.kaggle.com/williamkasafir) page,
-where I'll be trying to build projects based on the concepts introduced in the course. 
-
-## The theory
 
 ### What is machine learning? What is deep learning?
 
@@ -58,10 +56,17 @@ Often, we use three distinct subsets of our training data:
 - The validation set: We use this to frequently evaluate our model's effectiveness,
 - The test set: We use this to provide an unbiased view of our model.
 
-But why do we need these sets? The training set is, of course, needed, but what about the other two? The validation set is what we use to test for overfitting, that is, our model memorising the labels
-of items in our dataset. This implies that the model hasn't fully developed the necessary functionality for our task, and will therefore be ineffective. But what about the test set? Most
-models go through augmentations of their architectures, modifying learning rates, data augmentation strategies, and so on. These are known as *hyperparameters*. The problem is that we can overfit
-these hyperparameters, so we use the test set (which has data unseen even to us) to prevent subconciously choosing hyperparameters to fit our validation data.
+A training data set is a data set of examples used during the learning process and is used to fit the parameters. It is the bulk of the data, around 80%.
+
+<br>
+
+The validation set is what we use to test for overfitting, that is, our model memorising the labels of items in our dataset. This implies that the model hasn't fully developed the necessary
+functionality for our task, and will therefore be ineffective. The validation set as default is 20% of the data.
+
+<br>
+
+But what about the test set? Most models go through augmentations of their architectures, modifying learning rates, data augmentation strategies, and so on. These are known as *hyperparameters*.
+The problem is that we can overfit these hyperparameters, so we use the test set (which has data unseen even to us) to prevent subconciously choosing hyperparameters to fit our validation data.
 
 # Notes on the second chapter for the FastBook
 
@@ -70,7 +75,7 @@ Make sure to build your own projects, considering carefully the data avaliabilit
 Also, ensure that for beginner projects there already exist examples to learn from. There is also the drivetrain approach, which is described in detail in
 ["Designing Great Data Products"](https://www.oreilly.com/radar/drivetrain-approach-data-products/).
 
-## Types of deep learning applications
+### Types of deep learning applications
 There are many applications, including:
 - NLP: Effective for generating, classifying and categorizing texts and documents,
 - Images and text: This can be used in many areas, such as generating captions for images,
