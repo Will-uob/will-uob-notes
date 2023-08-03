@@ -60,7 +60,6 @@ Thanks to these corrections, a number of grammar points have come to my attentio
 
 [2^]: 完 is an auxiliary verb that always goes after the main verb. For example: 吃完饭 = Finished eating. So, 吃饭完 is wrong.
 
-[3^]: You can't use 正在 and 完 together, they're contradictory. One is currently and one means finished.
-      I wanted to say "he just finished eating", he elaborates further: To say just finished you can say 刚吃完饭. 刚 gāng here means "just".
+[3^]: You can't use 正在 and 完 together, they're contradictory. To say just finished you can say 刚吃完饭. 
 
 [4^]: You should use 吃鸡蛋 instead of 吃饭鸡蛋.
