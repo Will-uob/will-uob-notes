@@ -58,12 +58,8 @@ Often, we use three distinct subsets of our training data:
 
 A training data set is a data set of examples used during the learning process and is used to fit the parameters. It is the bulk of the data, around 80%.
 
-<br>
-
 The validation set is what we use to test for overfitting, that is, our model memorising the labels of items in our dataset. This implies that the model hasn't fully developed the necessary
 functionality for our task, and will therefore be ineffective. The validation set as default is 20% of the data.
-
-<br>
 
 But what about the test set? Most models go through augmentations of their architectures, modifying learning rates, data augmentation strategies, and so on. These are known as *hyperparameters*.
 The problem is that we can overfit these hyperparameters, so we use the test set (which has data unseen even to us) to prevent subconciously choosing hyperparameters to fit our validation data.
