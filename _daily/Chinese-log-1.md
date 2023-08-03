@@ -56,17 +56,15 @@ Thanks to these corrections, a number of grammar points have come to my attentio
 - [刚才](https://resources.allsetlearning.com/chinese/grammar/Expressing_"just_now"_with_"gangcai")
 - [刚](https://resources.allsetlearning.com/chinese/grammar/Expressing_"just"_with_"gang")
 
-[1^]: 三学生 is wrong. You always need a measure word connecting numbers and nouns in Chinese. It should be either 三个学生/三位学生/三名学生
-      If you're stuck just use 个 as it's the general classifier. 
+[1^]:
+	You always need a measure word connecting numbers and nouns in Chinese. It should be either 三个学生/三位学生/三名学生. When in doubt, use 个. 
 
-[2^]: 完 is an auxiliary verb that always goes after the main verb.
-      - 吃完饭 = Finished eating
-      - 跑完步 = Finished running
-      - 睡完觉 = Finished sleeping
+[2^]:
+	完 is an auxiliary verb that always goes after the main verb. For example: 吃完饭 = Finished eating. So, 吃饭完 is wrong.
 
-[3^]:"A正在完吃饭了“ is wrong. Firstly, you can't use 正在 and 完 together, they're contradictory. One is currently and one means finished. So are you finished eating or are you currently eating?
-     Secondly it's 吃完饭 not 完吃饭. Since I wanted to say "he just finished eating", he elaborates further: To say just finished you can say 刚吃完饭. 刚 gāng here means "just" as in just did something.
-     刚打篮球 = Just played basketball.
+[3^]:
+	You can't use 正在 and 完 together, they're contradictory. One is currently and one means finished.
+	I wanted to say "he just finished eating", he elaborates further: To say just finished you can say 刚吃完饭. 刚 gāng here means "just".
 
-[4^]:You should use 吃鸡蛋 instead of 吃饭鸡蛋. I know books teach 吃饭 as eating but that's only when u don't have a specific object ur eating. 吃饭 means eating (a meal). Therefore if you
-     already have an object ur eating, u should exclude the 饭
+[4^]:
+	You should use 吃鸡蛋 instead of 吃饭鸡蛋.
