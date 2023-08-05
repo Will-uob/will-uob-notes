@@ -12,7 +12,6 @@ This will be a summary of the theory and concepts introduced in the FastBook and
 my [kaggle](https://www.kaggle.com/williamkasafir) page, where I'll be trying to build projects based on the concepts introduced in the course.
 
 # Notes on the first chapter of the Fastbook
-
 ### What is machine learning? What is deep learning?
 
 Machine learning is a discipline where we allow programs to learn, rather than explicitly writing them. Deep learning involves using neural networks with multiple layers.
@@ -65,7 +64,6 @@ But what about the test set? Most models go through augmentations of their archi
 The problem is that we can overfit these hyperparameters, so we use the test set (which has data unseen even to us) to prevent subconciously choosing hyperparameters to fit our validation data.
 
 # Notes on the second chapter of the Fastbook
-
 ### Advice on building projects
 Make sure to build your own projects, considering carefully the data avaliability, using end-to-end iterations. Each iteration should see both improvements and shifts in where difficulties lie.
 Also, ensure that for beginner projects there already exist examples to learn from. There is also the drivetrain approach, which is described in detail in
@@ -89,7 +87,6 @@ One of the causes of this might be that the data you have contains data unsuitab
 this case, we unlink these images from the training, validation and data sets.
 
 # Notes on the third chapter of the Fastbook
-
 ### Tensors, arrays and their properties
 When working with deep learning in Python, we often store our data in either Numpy arrays or PyTorch tensors. Both these data structures possess intresting properties, but it's only worthwhile covering
 tensors, as a tensor is acts as a Numpy array with extra restrictions, such as only being able to use simple, basic numeric types. This means that unlike Numpy arrays, tensors cannot be
@@ -125,8 +122,7 @@ calculate the gradients of our weights, so we may alter them. The gradient signi
 The practical implementation is covered in the notes, but this section will point to the following article which explains the theory.
 
 # Notes on the fourth chapter of the Fastbook
-
-## The lesson
+### The lesson
 
 In this lesson and chapter we discuss Natural Language Processing. In the lesson we use an API called [HuggingFace Transformers](https://huggingface.co/docs/transformers/index).
 Transformers are explained in the [following](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model) wiki article. First, a few definitions:
