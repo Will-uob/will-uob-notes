@@ -3,7 +3,7 @@ published: true
 topic: CS Project Ideas
 subtitle: 
 date: 2023-08-22
-tags: Computer Science AI
+tags: Project AI
 ---
 
 # Ideas for computer science

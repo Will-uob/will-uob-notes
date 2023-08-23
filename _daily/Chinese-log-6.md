@@ -1,9 +1,9 @@
 ---
-published: false
+published: true
 topic: Chinese daily log 6 
 subtitle: 
 date: 2023-08-08
-tags: Chinese 中文 Languages
+tags: 中文 Languages
 ---
 
 # 拼音： 一些个声调

@@ -3,8 +3,8 @@ published: true
 topic: Longest Common Prefix from LeetCode
 subtitle: 
 date: 2023-08-18
-tags: Programming Python LeetCode
---
+tags: Python LeetCode
+---
 
 # Longest Common Prefix from LeetCode
 
