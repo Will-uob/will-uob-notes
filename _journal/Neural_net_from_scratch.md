@@ -32,7 +32,7 @@ the continuous and dummy variables.
 
 ### Setting up a linear model
 We can now work on calculating our predictions and our loss. We first pick random numbers in
-```(-0.5, 0.5)```, which will act as coefficients for each column of our independent matrix.
+$$(-0.5, 0.5)$$, which will act as coefficients for each column of our independent matrix.
 
 We then calculate our predictions using ```t_indep * coeffs```, where ```t_indep``` is our
 tensor of independent variables.[^3]
