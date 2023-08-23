@@ -32,7 +32,7 @@ the continuous and dummy variables.
 
 ### Setting up a linear model
 We can now work on calculating our predictions and our loss. We first pick random numbers in
-$$(-0.5, 0.5)$$, which will act as coefficients for each column of our independent matrix.
+$(-0.5, 0.5)$, which will act as coefficients for each column of our independent matrix.
 
 We then calculate our predictions using ```t_indep * coeffs```, where ```t_indep``` is our
 tensor of independent variables.[^3]
@@ -81,11 +81,15 @@ before.
 
 
 [^1]: By the way, it's often a good idea to research an unknown function before using it.
+
 [^2]: To get more information about your dataset, it's helpful to use the describe method from
       pandas and to look at the Data Dictionary for your project!
+      
 [^3]: The author pointed out that we don't need to add a bias term, because our dummy variables
       already cover the entire dataset.
+      
 [^4]: In the notebook, he talks about how we used broadcasting to achieve this aim.
+
 [^5]: Note that when ```backward``` is called, it adds the calculated gradients to the .grad attribute,
       so this attribute must be set back to zero each time!
 
