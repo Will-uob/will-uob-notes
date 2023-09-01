@@ -12,4 +12,4 @@ In this article we are focusing on neural networks as they appeared in the 70s a
 as CNNs.
 
 ### What are neural networks comprised of?
-The most important part of a neural network is the neuron. A neuron is something that hold a number, $n \in [0,1]$.
+The most important part of a neural network is the neuron. A neuron is something that hold a number, $$n \in [0,1]$$.
