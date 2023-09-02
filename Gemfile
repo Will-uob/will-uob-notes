@@ -4,7 +4,6 @@ gem "jekyll", "4.2.1"
 gem "jekyll-optional-front-matter"
 gem "jekyll-default-layout"
 gem "jekyll-readme-index"
-gem "jekyll-latex"
 gem "jekyll-titles-from-headings"
 gem "jekyll-relative-links"
 gem "kramdown-parser-gfm"
@@ -23,4 +22,3 @@ gem 'jekyll-wikilinks', '0.0.11'
 gem 'ruby-graphviz'
 gem "jekyll-last-modified-at"
 gem "jekyll-graph"
-# gem "jekyll-latex"
