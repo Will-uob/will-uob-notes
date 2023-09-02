@@ -39,29 +39,29 @@ Please note we can represent the process of calculating the activations for a su
 $$
 \begin{bmatrix}
          w\_{0,0} & w\_{0,1} & \cdots & a\_{0,n}\\
-         a\_{1,0} & a\_{1,1} & \cdots & a\_{1,n}\\ 
-         \vdots & \vdots & \ddots & \vdots\\ 
+         a\_{1,0} & a\_{1,1} & \cdots & a\_{1,n}\\
+         \vdots & \vdots & \ddots & \vdots\\
          a\_{k,0} & a\_{k,1} & \cdots & a\_{k,n}
      \end{bmatrix}
 \times
 \begin{bmatrix}
-         a\_{0}^{(0)} \\
-         a\_{1}^{(0)} \\
-         \vdots        \\
+         a\_{0}^{(0)}\\
+         a\_{1}^{(0)}\\
+         \vdots\\
          a\_{n}^{(0)}
      \end{bmatrix}
  =
  \begin{bmatrix}
-    a\_{0}^{(1)} \\
-    a\_{1}^{(1)} \\
-    \vdots
+    a\_{0}^{(1)}\\
+    a\_{1}^{(1)}\\
+    \vdots\\
     a\_{n}^({1})
  \end{bmatrix}
 $$
 
-where, for example, $a_0^{(1)} = \sigma(w_{0,0}a_0^{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0)$, which can be represented as,
+where, for example, $a_0^{(1)} = \sigma(w_{0,0}a_0`{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0)$, which can be represented as,
 
-$$ a^{(1)} = (\mathrm{W}a^({0}) + b) $$
+$$ a^{(1)} = (\mathrm{W} a^{(0)} + b) $$
 
 ### Neurons as functions
 
