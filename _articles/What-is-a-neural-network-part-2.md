@@ -31,7 +31,7 @@ The question now arises about how we can generate the activations of our neurons
 represented as connections between neurons. Each neuron in a subsequent layer \\(K_{k+1}\\) has \\(n\\) weights, where \\(n\\) is the number of weights in \\(L_{k}\\). The activation of a neuron in a subsequent
 layer is the defined as \\(\sigma(w_1a_1 + w_2a_2 + \dots + w_na_n)\\). I love $ 5 + 5 $.
 
-\[5 + 5 = 10\].
+\\[5 + 5 = 10\\].
 
 Insert maths here.
 
