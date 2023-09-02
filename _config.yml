@@ -167,6 +167,7 @@ plugins:
 - jekyll-readme-index
 - jekyll-default-layout
 - jekyll-titles-from-headings
+- jekyll-latex
 - jekyll-relative-links
 - jekyll-github-metadata
 - jekyll-seo-tag
