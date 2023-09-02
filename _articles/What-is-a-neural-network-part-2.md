@@ -41,5 +41,7 @@ The effect of these neurons being manipulated by both weights and bias is that i
 
 ### The maths of neural networks and neurons as functions
 
-Put image here!
+A neuron takes all the ouputs of the previous layer's neurons and returns an activation value, $n \in [0,1]$. Knowing this, we can view the entire neural network as a single function, $f$, where
+
+$$f(a_0, a_1, \dots, a_783) = \begin{matrix} y_0 \\ y_1 \\ \dots \\ y_9$$
 
