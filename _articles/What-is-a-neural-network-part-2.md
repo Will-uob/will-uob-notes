@@ -38,23 +38,23 @@ Please note we can represent the process of calculating the activations for a su
 
 $$
 \begin{bmatrix}
-         w\_{0,0} & w\_{0,1} & \cdots & a\_{0,n}\\
-         a\_{1,0} & a\_{1,1} & \cdots & a\_{1,n}\\
-         \vdots & \vdots & \ddots & \vdots\\
+         w\_{0,0} & w\_{0,1} & \cdots & a\_{0,n}\\\
+         a\_{1,0} & a\_{1,1} & \cdots & a\_{1,n}\\\
+         \vdots & \vdots & \ddots & \vdots\\\
          a\_{k,0} & a\_{k,1} & \cdots & a\_{k,n}
      \end{bmatrix}
 \times
 \begin{bmatrix}
-         a\_{0}^{(0)}\\
-         a\_{1}^{(0)}\\
-         \vdots\\
+         a\_{0}^{(0)}\\\
+         a\_{1}^{(0)}\\\
+         \vdots\\\
          a\_{n}^{(0)}
      \end{bmatrix}
  =
  \begin{bmatrix}
-    a\_{0}^{(1)}\\
-    a\_{1}^{(1)}\\
-    \vdots\\
+    a\_{0}^{(1)}\\\
+    a\_{1}^{(1)}\\\
+    \vdots\\\
     a\_{n}^({1})
  \end{bmatrix}
 $$
