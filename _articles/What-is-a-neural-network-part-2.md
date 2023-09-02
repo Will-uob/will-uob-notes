@@ -28,10 +28,10 @@ one with fastai and the other with PyTorch.
 ### Weights and Bias
 
 The question now arises about how we can generate the activations of our neurons such that those in the output layer accurately represent our predictions. The answer is weights, which can be visually
-represented as connections between neurons. Each neuron in a subsequent layer \\(K_{k+1}\\) has \\(n\\) weights, where \\(n\\) is the number of weights in \\(L_{k}\\). The activation of a neuron in a subsequent
-layer is the defined as \\(\sigma(w_1a_1 + w_2a_2 + \dots + w_na_n)\\). I love $ 5 + 5 $.
+represented as connections between neurons. Each neuron in a subsequent layer \\(K\_{k+1}\\) has \\(n\\) weights, where \\(n\\) is the number of weights in \\(L\_{k}\\). The activation of a neuron in a subsequent
+layer is the defined as \\(\sigma(w\_1a\_1 + w\_2a\_2 + \dots + w\_na\_n)\\). I love $ 5 + 5 $.
 
-\\[5 + 5 = 10\\].
+\\[ 5 + 5 = 10 \\].
 
 Insert maths here.
 
