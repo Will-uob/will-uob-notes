@@ -2,10 +2,10 @@
 # --- USER CONFIGURATION --- #
 ##############################
 
-title: Exocore
-description: A navigable, organised hypertext personal knowledge base
-url: https://exocore.netlify.app
-repository: remiliacorp/exocore
+title: Goodtimes 
+description: My notes
+url: https://goodtimesnotebook.netlify.app/
+repository: Will-uob/will-uob-notes
 
 ##############################################
 # --- ANALYTICS CONFIGURATION (OPTIONAL) --- #
@@ -168,7 +168,7 @@ plugins:
 - jekyll-default-layout
 - jekyll-titles-from-headings
 - jekyll-relative-links
-# - jekyll-github-metadata
+- jekyll-github-metadata
 - jekyll-seo-tag
 - html-proofer
 - rubocop
@@ -179,3 +179,4 @@ plugins:
 - jekyll-wikilinks
 - jekyll-last-modified-at
 - jekyll-graph
+- jekyll-latex
