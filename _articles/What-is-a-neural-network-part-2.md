@@ -31,23 +31,7 @@ The question now arises about how we can generate the activations of our neurons
 represented as connections between neurons. Each neuron in a subsequent layer \\(K_{k+1}\\) has \\(n\\) weights, where \\(n\\) is the number of weights in \\(L_{k}\\). The activation of a neuron in a subsequent
 layer is the defined as \\(\sigma(w_1a_1 + w_2a_2 + \dots + w_na_n)\\). I love $ 5 + 5 $.
 
-
-$$
-\begin{aligned}
-  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
-  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
-  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
-      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
-      \vdots & \ddots & \vdots \\
-      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
-    \end{array} \right)
-  \left( \begin{array}{c}
-      y_1 \\
-      \vdots \\
-      y_n
-    \end{array} \right)
-\end{aligned}
-$$
+\[5 + 5 = 10\].
 
 Insert maths here.
 
