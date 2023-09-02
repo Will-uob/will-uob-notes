@@ -5,23 +5,8 @@ date:
 type:
 
 ---
-<main>
-<section class="container-lg">
-
-  <div class="leftcolumn">
-
-    
-    {% include profile-card.html %}
-  </div>
-
-  <div class="midcolumn">
-  <div class="index-card">
-    <p style="float: right">Showing {{ site.articles.size }} items</p>
-    <h1 class="index-title">Index of Articles (By most recent)</h1>
-  <div class="index-grid">
-  {% assign topic_sort = site.articles | sort: 'topic'%}
-  {% for item in topic_sort %}	
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
   MathJax.Hub.Config({
     "HTML-CSS": {
       availableFonts: ["TeX"],
@@ -40,8 +25,24 @@ type:
     imageFont: null,
     "AssistiveMML": { disabled: true }
   });
-</script>
+  </script>
+</head>
+<main>
+<section class="container-lg">
 
+  <div class="leftcolumn">
+
+    
+    {% include profile-card.html %}
+  </div>
+
+  <div class="midcolumn">
+  <div class="index-card">
+    <p style="float: right">Showing {{ site.articles.size }} items</p>
+    <h1 class="index-title">Index of Articles (By most recent)</h1>
+  <div class="index-grid">
+  {% assign topic_sort = site.articles | sort: 'topic'%}
+  {% for item in topic_sort %}	
     <a class="index-anchor" href="{{ item.url }}">
       <div class="index-item">
         <span class="index-item-title">{{ item.title | truncate: 55 }}</span>
