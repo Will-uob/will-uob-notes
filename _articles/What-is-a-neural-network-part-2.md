@@ -7,23 +7,19 @@ tags: AI ML
 ---
 
 ## What is a neural network?
-### We are focusing on the default form.
-In this article we are focusing on neural networks as they appeared in the 70s and 80s. This is because the theory is still vital and will help us when we tackle more advanced neural networks, such
-as CNNs.
+In this article we attempt to understand how the simplest form of neural network functions in detail. This is so we may, in the future, tackle harder types of neural networks, such as convolutional neural 
+networks.
 
 ### What are neural networks comprised of?
 The most important part of a neural network is the neuron. A neuron is something that hold a number, $n \in [0,1]$. We refer to this number, $n$, as the neuron's activation. Everything else that comprises
-a neural network is to do with manipulating the activations of neurons so that they neural network can adapt to our task.
+a neural network is to do with manipulating the activations of neurons so that the neural network can adapt to our task.
 
 This tutorial focuses on the MNIST dataset, as this is the example 3B1B used, the author who I drew most of this information from. Let's consider a simple network, with:
 - one input layer, with each neuron representing a pixel in a 28x28 grid,
 - two hidden layers, comprised of 16 neurons each,
 - one output layer, comprised on ten nodes, each representing a prediction for one of our handwritten digits.
 
-Put image here!
-
-Throughout the rest of this tutorial we will describe the processes that allow this network to learn. I will also link at the bottom two implementations of this network, that I created myself,
-one with fastai and the other with PyTorch.
+![Image of a neural network](images/mnist_nn.png)
 
 ### Weights and Bias
 
@@ -43,5 +39,5 @@ The effect of these neurons being manipulated by both weights and bias is that i
 
 A neuron takes all the ouputs of the previous layer's neurons and returns an activation value, $n \in [0,1]$. Knowing this, we can view the entire neural network as a single function, $f$, where
 
-$$f(a_0, a_1, \dots, a_783) = \begin{matrix} y_0 \\ y_1 \\ \dots \\ y_9$$
+$$f(a_0, a_1, \dots, a_783) = \begin{matrix} y_0 \\ y_1 \\ \dots \\ y_9 \end{matrix}$$
 
