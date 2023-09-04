@@ -1,7 +1,6 @@
 ---
 published: true
-topic: What are Neural Networks: Continued
-subtitle:
+topic: What are Neural Networks? - 2
 date: 2023-09-01
 tags: AI ML
 ---
