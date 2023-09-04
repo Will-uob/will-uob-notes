@@ -37,26 +37,26 @@ A neural network "learns" by automatically altering the weights and biases of ea
 Please note we can represent the process of calculating the activations for a subsequent layer using matrix multiplication, that is
 
 $$
+\begin{align*}
+Z^{[1]}y &= \left[\begin{array}{ccc}
+  \horzbar & w\_{0,0} & \horzbar \\
+  \horzbar & w\_{0,0} & \horzbar \\
+  \horzbar & w\_{0,0} & \horzbar \\
+  \horzbar & w\_{0,0} & \horzbar \\
+\end{array}\right]
 \begin{bmatrix}
-         w\_{0,0} & w\_{0,1} & \cdots & a\_{0,n}\\\\
-         a\_{1,0} & a\_{1,1} & \cdots & a\_{1,n}\\\\
-         \vdots & \vdots & \ddots & \vdots\\\\
-         a\_{k,0} & a\_{k,1} & \cdots & a\_{k,n}
-     \end{bmatrix}
-\times
-\begin{bmatrix}
-         a\_{0}^{(0)}\\\\
-         a\_{1}^{(0)}\\\\
-         \vdots\\\\
-         a\_{n}^{(0)}
-     \end{bmatrix}
- =
- \begin{bmatrix}
-    a\_{0}^{(1)}\\\\
-    a\_{1}^{(1)}\\\\
-    \vdots\\\\
-    a\_{n}^({1})
- \end{bmatrix}
+  a\_0^{(0)}}  \\
+  a\_1^{(0)}}  \\
+  \vdots \\
+  a\_n^{{0}}}
+\end{bmatrix} \\
+{} &= \begin{bmatrix}
+  b\_{1} \\
+  b\_{2} \\
+  \vdots \\
+  b\_{m}
+\end{bmatrix}
+\end{align*}
 $$
 
 where, for example, $a_0^{(1)} = \sigma(w_{0,0}a_0`{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0)$, which can be represented as,
@@ -107,7 +107,7 @@ last layer. Of course, however, the activation of our "2" neuron is dependent on
 
 ### Backpropagation
 
-Backpropagation uses this key idea, by adding together the desired changes, we get a list of changes for our neurons for our $2^{\text{nd}}$ to last layer. We can then recursively apply this approach
+Backpropagaption uses this key idea, by adding together the desired changes, we get a list of changes for our neurons for our $2^{\text{nd}}$ to last layer. We can then recursively apply this approach
 to the relevant weights and biases that determine those values, moving backward throughout the network! We, in theory[^5] at least, repeat this process for all training examples and average together
 the desired changes to each weight and bias, which is an approximation of our negative gradient of the cost function referred to in the previous section.
 
