@@ -37,26 +37,19 @@ A neural network "learns" by automatically altering the weights and biases of ea
 Please note we can represent the process of calculating the activations for a subsequent layer using matrix multiplication, that is
 
 $$
-\begin{align*}
-Z^{[1]}y &= \left[\begin{array}{ccc}
-  \horzbar & w\_{0,0} & \horzbar \\
-  \horzbar & w\_{0,0} & \horzbar \\
-  \horzbar & w\_{0,0} & \horzbar \\
-  \horzbar & w\_{0,0} & \horzbar \\
-\end{array}\right]
 \begin{bmatrix}
-  a\_0^{(0)}}  \\
-  a\_1^{(0)}}  \\
-  \vdots \\
-  a\_n^{{0}}}
-\end{bmatrix} \\
-{} &= \begin{bmatrix}
-  b\_{1} \\
-  b\_{2} \\
-  \vdots \\
-  b\_{m}
+    x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+    x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+    \hdotsfor{5} \\
+    x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
 \end{bmatrix}
-\end{align*}
+=
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}
 $$
 
 where, for example, $a_0^{(1)} = \sigma(w_{0,0}a_0`{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0)$, which can be represented as,
