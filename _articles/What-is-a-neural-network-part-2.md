@@ -24,8 +24,7 @@ This tutorial focuses on the MNIST dataset, as this is the example 3b1b used, th
 
 The question now arises about how we can generate the activations of our neurons such that those in the output layer accurately represent our predictions. The answer is weights, which can be visually
 represented as connections between neurons. Each neuron in a subsequent layer $K\_{k+1}$ has $n$ weights, where $n$ is the number of weights in $L\_{k}$. The activation of a neuron[^2] in a subsequent
-layer is the defined as $\sigma(w\_1a\_1 + w\_2a\_2 + \dots + w\_na\_n)$. I love $5 + 5$. I love $5 + 10 + \dots$, where $\sigma$ is a function used to ensure the value of our neuron's activation
-is $\in [0,1]$.[^1]
+layer is the defined as $\sigma(w\_1a\_1 + w\_2a\_2 + \dots + w\_na\_n)$, where $\sigma$ is a function used to ensure the value of our neuron's activation is $\in [0,1]$.[^1]
 
 But, what if you want a neuron to become active only when it's beyond a certain threshold? This is where bias comes in, which we add in the case of inactivity. Hence, the activation of a neuron is defined
 now as $\sigma(w\_1a\_1 + w\_2a\_2 + \dots + w\_na\_n + b)$, where $b$ is the bias. We will explain why bias is useful when we cover neurons as functions.
@@ -35,27 +34,7 @@ A neural network "learns" by automatically altering the weights and biases of ea
 #### Notation
 Please note we can represent the process of calculating the activations for a subsequent layer using matrix multiplication, that is
 
-$$
-\begin{pmatrix}
-    w\_{0,0} & w\_{0,1} & \dots \\\
-    w\_{1,0} & w\_{1,1} & \dots \\\
-    \vdots & \ddots & \vdots \\\
-    w\_{k,0} & \dots & w\_{k, n}
-\end{pmatrix}
-\times
-\begin{pmatrix}
-    a & b \\\
-    c & d
-\end{pmatrix}
-
-=
-
-\begin{pmatrix}
-    a & b \\\
-    c & d
-\end{pmatrix}
-$$
-
+$$ \begin{pmatrix} w\_{0,0} & w\_{0,1} & \dots \\\ w\_{1,0} & w\_{1,1} & \dots \\\ \vdots & \ddots & \vdots \\\ w\_{k,0} & \dots & w\_{k, n} \end{pmatrix} \times \begin{pmatrix} a & b \\\ c & d \end{pmatrix} = \begin{pmatrix} a & b \\\ c & d \end{pmatrix} $$
 
 where, for example, $a_0^{(1)} = \sigma{w_{0,0}a_0{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0}$, which can be represented as,
 
