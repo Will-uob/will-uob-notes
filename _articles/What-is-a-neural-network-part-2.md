@@ -47,9 +47,9 @@ The process of using matrix multiplication for this task is far more efficient t
 ### Neurons as functions
 
 A neuron can be viewed as a function, in fact as it's own [linear regression model](https://www.ibm.com/topics/linear-regression), as it takes all the ouputs of the previous layer's neurons and
-returns an activation value, $n \in [0,1]$. Indeed, we can view the entire neural network as a single function, $f$, where
+returns an activation value, $n \in [0,1]$. Indeed, we can view the entire neural network as a single function, $f$,
 
-$$f(a\_0, a\_1, \dots, a\_{783}) = \begin{pmatrix} y\_0 \\\ y\_1 \\\ \vdots \\\ y\_9 \end{pmatrix}$$,
+$$f(a\_0, a\_1, \dots, a\_{783}) = \begin{pmatrix} y\_0 \\\ y\_1 \\\ \vdots \\\ y\_9 \end{pmatrix}$$
 
 where we have $n$ activations as outputs and our predictions as outputs.
 
@@ -64,7 +64,7 @@ while the model will think it's doing a good job, it's not actually doing what w
 ### What is gradient descent?
 The process we use to minimize our cost function is known as gradient descent [^4]. To explain what gradient descent is, look at the following diagram:
 
-![Picture of gradient descent](/images/gradientdescent.png)
+![Illustration of gradient descent](/images/gradientdescent.png)
 
 Here, we have a function of two variables, $\theta\_0$ and $\theta\_1$, with the third axis showing the output. In our actual model, we would have as inputs as those we put into our cost function,
 and the graph above our inputs the output of our cost function. We then see a line going from our initial point towards a local minimum of the function, in fixed size steps. The path to the local minimum is
@@ -75,7 +75,7 @@ determined by the direction and magnitude of the negative of the gradient of ste
 The process of using gradient descent to modify our parameters efficiently, so as to minimize the cost function, is know as backpropagation, which we'll cover shortly. However, for now, think about what we're
 trying to do here. We have some plane with $n$ axes, with our cost function mapped on another axis. Therefore, the path to the local minimum depends on where we start, i.e the values of our weights and biases.
 
-So, if we create a vector of all our weights and biases, $\vec{\mathbb{W}}$, and a vector which represents the relative changes $- \delta C(\vec{\mathbb{W}})$, then we can add the values of the one to
+So, if we create a vector of all our weights and biases, $\vec{\mathbb{W}}$, and a vector which represents the relative changes $- \grad C(\vec{\mathbb{W}})$, then we can add the values of the one to
 the other to implement our step towards the local minimum. Furthermore, thinking about this visually, the relative changes of the highest values represent weights and biases with the most impact on the
 direction of our step. Please keep these things in mind for the following section.
 
@@ -85,7 +85,7 @@ As described previously, we want to use backpropagation in order to simulate per
 of our weights' and biases' negative gradients, so that we can efficiently decrease the cost function. In the video, he uses 2 as input and describes how we can minimize the cost function for this output.
 We consider the three factors responsible for a neuron's activation:
 
-- bias,
+- the bias, which influences the activation value of a neuron directly
 - weights, where weights will have differing levels of influence, based on the neuron they stem from.
   If you increase the weight from a brighter neuron to the "2" neuron, it has a greater effect on the cost function. [^6]
 - previous layer's activations, which influence directly the activation of subsequent neurons. For
@@ -107,7 +107,7 @@ use to improve the $2^{\text{nd}}$ to last layer. We then recursively apply this
 the loss function.
 
 However, all this was just for one training example. We do this backpropagation routine for every other training example, recording the desired changes to the weights and biases, and average these together.
-This collection of averages is an approximation of the negative gradient of the cost function, $\eta \delta C(w\_1, w\_2, \dots, w\_n)$.
+This collection of averages is an approximation of the negative gradient of the cost function, $\eta \grad C(w\_1, w\_2, \dots, w\_n)$.
 
 ### Mini-batches and Stochastic Gradient Descent
 In practice, adding up the influence of every single training example is very time intensive for every single gradient descent step. So, we use the following procedure:
