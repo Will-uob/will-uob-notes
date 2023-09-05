@@ -1,3 +1,4 @@
+
 ---
 published: true
 topic: What are Neural Networks? - 2
@@ -35,7 +36,7 @@ A neural network "learns" by automatically altering the weights and biases of ea
 #### Notation
 Please note we can represent the process of calculating the activations for a subsequent layer using matrix multiplication, that is
 
-$$\begin{pmatrix}a & b\\\ c & d\end{pmatrix} \times \begin{pmatrix}a & b \\\ c & d\end{pmatrix}$$
+$$\begin{pmatrix}w\_{0,0} & w\_{0,1} & \dots \\\ w\_{1,0} & w\_{1,1} \dots \\\ \vdots \ddots \vdots \\\ w\_{k,0} \dots w\_{k, n}\end{pmatrix} \times \begin{pmatrix}a & b \\\ c & d\end{pmatrix} = \begin{pmatrix}a & b \\\ c & d\end{pmatrix}$$
 
 
 where, for example, $a_0^{(1)} = \sigma{w_{0,0}a_0{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0}$, which can be represented as,
@@ -44,8 +45,8 @@ $$ a^{(1)} = (\mathbb{W} a^{(0)} + b) $$
 
 ### Neurons as functions
 
-A neuron can be viewed as a functions, as it takes all the ouputs of the previous layer's neurons and returns an activation value, $n \in [0,1]$. Indeed, we can view the entire neural network as a single
-function, $f$, where
+A neuron can be viewed as a function, in fact as it's own [linear regression model](https://www.ibm.com/topics/linear-regression), as it takes all the ouputs of the previous layer's neurons and
+returns an activation value, $n \in [0,1]$. Indeed, we can view the entire neural network as a single function, $f$, where
 
 $$f(a_0, a_1, \dots, a_{783}) = \begin{pmatrix} y_0 \\ y_1 \\ \vdots \\ y_9 \end{pmatrix}$$.
 
