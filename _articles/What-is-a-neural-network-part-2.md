@@ -116,6 +116,26 @@ In practice, adding up the influence of every single training example is very ti
 
 This procedure is known as stochastic gradient descent, which is significantly faster than regular gradient descent.
 
+## Summary
+1. A neural network is comprised on neurons, each holding a value between 0 and 1.
+2. We construct a network's layers from neurons, and define relationships between neurons in different layers using weights and biases.
+3. A neural network learns by minimizing the value of a chosen loss function, usually this is the mean squared error.
+4. We find the local minimum of the loss function using gradient descent, which is done behind the scenes using backpropagation.
+5. In order to speed up computation time, we often use stochastic gradient descent.
+
+## Questions
+1. What is a neural network comprised of?
+2. What can a neuron be described as?
+3. How does a neural network learn?
+4. Do we use the loss as an indicator of performance in the real world?
+5. What is gradient descent?
+6. Why don't we try and find the global minimum of our loss function?
+7. What factors influence that activation of a neuron in a neural network?
+8. What is backpropagation?
+9. What is the purpose of backpropagation in relation to finding our minimum for our loss function?
+10. What is stochastic gradient descent?
+11. Why would you use stochastic gradient descent over regular gradient descent?
+
 [^1]: Note that in industry we don't use sigmoids, but rather we use [ReLUs](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)), since they are far easier to train.
 
 [^2]: I believe this is the same as the neuron's [activation function](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)).
