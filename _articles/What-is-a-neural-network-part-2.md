@@ -64,7 +64,7 @@ while the model will think it's doing a good job, it's not actually doing what w
 ### What is gradient descent?
 The process we use to minimize our cost function is known as gradient descent [^4]. To explain what gradient descent is, look at the following diagram:
 
-![Illustration of gradient descent](/images/gradientdescent.png)
+![Image of a GD](/images/gradientdescent.png)
 
 Here, we have a function of two variables, $\theta\_0$ and $\theta\_1$, with the third axis showing the output. In our actual model, we would have as inputs as those we put into our cost function,
 and the graph above our inputs the output of our cost function. We then see a line going from our initial point towards a local minimum of the function, in fixed size steps. The path to the local minimum is
