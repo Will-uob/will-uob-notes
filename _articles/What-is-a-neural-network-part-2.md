@@ -75,7 +75,7 @@ determined by the direction and magnitude of the negative of the gradient of ste
 The process of using gradient descent to modify our parameters efficiently, so as to minimize the cost function, is know as backpropagation, which we'll cover shortly. However, for now, think about what we're
 trying to do here. We have some plane with $n$ axes, with our cost function mapped on another axis. Therefore, the path to the local minimum depends on where we start, i.e the values of our weights and biases.
 
-So, if we create a vector of all our weights and biases, $\vec{\mathbb{W}}$, and a vector which represents the relative changes $- \grad C(\vec{\mathbb{W}})$, then we can add the values of the one to
+So, if we create a vector of all our weights and biases, $\vec{\mathbb{W}}$, and a vector which represents the relative changes $- \nabla C(\vec{\mathbb{W}})$, then we can add the values of the one to
 the other to implement our step towards the local minimum. Furthermore, thinking about this visually, the relative changes of the highest values represent weights and biases with the most impact on the
 direction of our step. Please keep these things in mind for the following section.
 
@@ -107,7 +107,7 @@ use to improve the $2^{\text{nd}}$ to last layer. We then recursively apply this
 the loss function.
 
 However, all this was just for one training example. We do this backpropagation routine for every other training example, recording the desired changes to the weights and biases, and average these together.
-This collection of averages is an approximation of the negative gradient of the cost function, $\eta \grad C(w\_1, w\_2, \dots, w\_n)$.
+This collection of averages is an approximation of the negative gradient of the cost function, $\eta \nabla C(w\_1, w\_2, \dots, w\_n)$.
 
 ### Mini-batches and Stochastic Gradient Descent
 In practice, adding up the influence of every single training example is very time intensive for every single gradient descent step. So, we use the following procedure:
