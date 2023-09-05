@@ -36,6 +36,27 @@ A neural network "learns" by automatically altering the weights and biases of ea
 #### Notation
 Please note we can represent the process of calculating the activations for a subsequent layer using matrix multiplication, that is
 
+$$
+\begin{pmatrix}
+    w\_{0,0} & w\_{0,1} & \dots \\\
+    w\_{1,0} & w\_{1,1} & \dots \\\
+    \vdots & \ddots & \vdots \\\
+    w\_{k,0} & \dots & w\_{k, n}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+    a & b \\\
+    c & d
+\end{pmatrix}
+
+=
+
+\begin{pmatrix}
+    a & b \\\
+    c & d
+\end{pmatrix}
+$$
+
 
 where, for example, $a_0^{(1)} = \sigma{w_{0,0}a_0{(0)} + w_{0, 1}a_1^{(0)} + \dots + w_{0, n}a_n^{(0)} + b_0}$, which can be represented as,
 
