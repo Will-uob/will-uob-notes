@@ -11,14 +11,9 @@ The following are notes taken from the following sources:
 - [Diffusers](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/diffusers_intro.ipynb),
 - The [video](https://www.youtube.com/watch?v=1CIpzeNxIhU) by Computerphile.
 
-
-Stable diffusion can be described as Denoising Diffusion Probabilistic Models, DDPMs, score-based generative models, or simply autoencoders. In the first article, they cover the original paper, implementing it
-in PyTorch. There are multiple perspectives[^1] on diffusion models. In the first article, they use the discrete-time (latent variable model) perspective, but check out the others as well. Note that in this
-article I'm primarily intrested in summarising the ideas and theoretical side of stable diffusion, to see the code, go onto my Kaggle or Google Colab.
-
 ## What is a diffusion model.
-Like other generative models, such as GANs, VAEs or Normalisng Flows[^2], diffusion models convert noise from some sample data distribution to a data sample. Diffusion models also do this; the network learns
-gradually to denoise the data, starting from pure noise.
+Like other generative models, such as GANs, VAEs or Normalisng Flows[^1], diffusion models (also known as Denoising Diffusion Probabilistic Models, DDPMs, score-based generative models, or simply
+autoencoders) convert noise from some sample data distribution to a data sample. Diffusion models[^2] also do this; the network learns gradually to denoise the data, starting from pure noise.
 
 The setup for a diffusion model is in two parts:
 - A fixed forward process $q$, which we define, that gradually adds Gaussian noise[^3] to an image, until you end up with pure noise.
@@ -44,7 +39,7 @@ q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \bet
 $$
 
 Recall that a normal (Gaussian) distribution is defined by 2 parameters: a mean $\mu$ and a variance $\sigma^2 \geq 0$. Basically, each new (slightly noisier) image at time step $t$ is drawn from a
-**conditional Gaussian distribution** with $\mathbf{\mu}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}\\)$ and $\sigma^2\_t = \beta\_t$, which we can do by sampling $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ and then setting $\mathbf{x}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1} +  \sqrt{\beta_t} \mathbf{\epsilon}$.
+**conditional Gaussian distribution** with $\mathbf{\mu}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}$ and $\sigma^2\_t = \beta\_t$, which we can do by sampling $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ and then setting $\mathbf{x}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1} +  \sqrt{\beta_t} \mathbf{\epsilon}$.
 
 Note that the $\beta_t$ aren't constant at each time step $t$ (hence the subscript) --- in fact one defines a so-called **"variance schedule"**, which can be linear, quadratic, cosine, etc...
 
@@ -77,9 +72,9 @@ This was then later improved in the [Improved diffusion models](https://openrevi
 
 So we continue, assuming that our neural network only needs to learn/represent the mean of this conditional probability distribution.
 
-[^1]: See the others, they could be useful.
+[^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
 
-[^2]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
+[^2]: See the other perspectives from the article later, they could be useful.
 
 [^3]: What the hell is Gaussian noise?
 
