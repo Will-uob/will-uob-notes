@@ -93,3 +93,5 @@ flatten_matrix = [val # The value we want to append to the list
                    for sublist in matrix # The outer loop
                    for val in sublist] # The inner loop
 ```
+
+
