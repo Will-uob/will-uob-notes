@@ -47,7 +47,7 @@ class Solution:
             return False
 ```
 
-I believe this is $$O(n)$$ time complexity, though I could definitely be wrong about that.
+I believe this is $O(n)$ time complexity, though I could definitely be wrong about that.
 
 ## Their solution
 Is very nice and elegant. They use the two pointers technique: one pointer starting from the beginning of the string and another starting from the end. They move these pointers towards each other,
@@ -84,7 +84,7 @@ class Solution(object):
 ```
 
 ### Time and Space Complexity of their solution
-The time complexity of their solution is $$O(n)$$, where $n$ is the length of the input string $s$. The space complexity is $O(n)$.
+The time complexity of their solution is $O(n)$, where $n$ is the length of the input string $s$. The space complexity is $O(n)$.
 
 [^1]: See sorting and searching algorithms, as this reminds of them, especially insertion sort. Christ, there is so much I've forgotten over the last few years! This shit is cool!
 
