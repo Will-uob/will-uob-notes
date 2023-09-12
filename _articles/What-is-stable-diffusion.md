@@ -35,8 +35,10 @@ Let $q(\mathbf{x}\_0)$ be the real data distribution. We can sample from this di
 $q(\mathbf{x}\_t | \mathbf{x}\_{t-1})$ which adds Gaussian noise at each time step $t$, according to a known variance schedule $0 < \beta\_1 < \beta\_2 < ... < \beta\_T < 1$ as
 
 $$
-q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).[^5]
-$$
+
+q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).
+
+$$ [^5]
 
 Recall that a normal (Gaussian) distribution is defined by 2 parameters: a mean $\mu$ and a variance $\sigma^2 \geq 0$. Basically, each new (slightly noisier) image at time step $t$ is drawn from a
 **conditional Gaussian distribution** with $\mathbf{\mu}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}$ and $\sigma^2\_t = \beta\_t$, which we can do by sampling $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ and then setting $\mathbf{x}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1} +  \sqrt{\beta_t} \mathbf{\epsilon}$[^6].
@@ -48,7 +50,7 @@ So starting from $\mathbf{x}\_0$, we end up with $\mathbf{x}\_1,  ..., \mathbf{x
 Now, if we knew the conditional distribution $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, then we could run the process in reverse: by sampling some random Gaussian noise $\mathbf{x}\_T$, and then
 gradually "denoise" it so that we end up with a sample from the real distribution $\mathbf{x}_0$.
 
-However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable[^7] since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
+However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable [^7] since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
 we're going to leverage a neural network to **approximate (learn) this conditional probability distribution**, let's call it $p\_\theta (\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, with $\theta$ being the
 parameters of the neural network, updated by gradient descent.
 
@@ -89,8 +91,7 @@ it to **$X_0$** to get **$X_t$** directly. Also, note that $\bar{\alpha\_t}$ are
 $\beta\_t$ variance schedule, and are thus also known and can be precomputed. This allows us to randomly sample $t$ during training and optimize $L_t$.
 
 Thanks to this property, we can, which is shown in [this](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) article, **reparametrize the mean to make the neural network learn the added noise**,
-via a neural network $\epsilon\_{\theta} (**X_t**, t)$, for noise level $t$ in the KL terms which
-constitute the losses. Hence, our neural network becomes a loss predictor, not a mean predictor.
+via a neural network $\epsilon\_{\theta} \mathbf{x}\_t, t)$, for noise level $t$ in the KL terms which constitute the losses. Hence, our neural network becomes a loss predictor, not a mean predictor.
 
 The mean can be computed as:
 
@@ -98,10 +99,10 @@ $$ \mathbf{\mu}\_\theta(\mathbf{x}\_t, t) = \frac{1}{\sqrt{\alpha\_t}} \left( \m
 
 The final objective function $L_t$ for a random time step $t$ is now:
 
-$$ | \mathbf{\epsilon} - \mathbf{\epsilon}\_\theta(\mathbf{x}t, t) |^2 = | \mathbf{\epsilon} - \mathbf{\epsilon}\theta( \sqrt{\bar{\alpha}\_t} \mathbf{x}\_0 + \sqrt{(1- \bar{\alpha}\_t) } \mathbf{\epsilon}, t) |^2.$$
+$$ \|\| \mathbf{\epsilon} - \mathbf{\epsilon}\_\theta(\mathbf{x}t, t) {\|\|}^2 = \|\| \mathbf{\epsilon} - \mathbf{\epsilon}\theta( \sqrt{\bar{\alpha}\_t} \mathbf{x}\_0 + \sqrt{(1- \bar{\alpha}\_t) } \mathbf{\epsilon}, t) {\|\|}^2.$$
 
-Here, $mathbf{x}\_0$ is the initial image, and we see the direct noise level $t$ sample given by the
-fixed forward process. $\mathbf{\epsilon}$ is the pure noise sampled at $t$, and $\mathbf{\epsilon}\theta (\mathbf{x}\_t, t)$ is our neural network.
+Here, $\mathbf{x}\_0$ is the initial image, and we see the direct noise level $t$ sample given by the
+fixed forward process. $\mathbf{\epsilon}$ is the pure noise sampled at $t$, and $\mathbf{\epsilon}\_\theta (\mathbf{x}\_t, t)$ is our neural network.
 
 The neural network is optimized using a simple mean squared error (MSE) between the true and predicted
 Gaussian noise.
