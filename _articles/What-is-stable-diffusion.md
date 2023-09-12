@@ -36,7 +36,7 @@ $q(\mathbf{x}\_t | \mathbf{x}\_{t-1})$ which adds Gaussian noise at each time st
 
 $$
 
-q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).
+q(\mathbf{x}\_t \| \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).
 
 $$ [^5]
 
