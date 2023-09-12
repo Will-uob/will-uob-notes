@@ -74,21 +74,47 @@ So we continue, assuming that our neural network only needs to learn/represent t
 
 ## Defining an objective function (by reparametrizing the mean)
 To learn the mean of the backward process, the authors observe that the combination of $q$ and $p\_\theta$ can be seen as a variational auto-encoder[^9]. Hence, the **variational lower bound**[^10] can be
-pused to minimize the negative log-likelihood with respect to ground truth data sample **$x_0$**. 
+pused to minimize the negative log-likelihood with respect to ground truth data sample **$x_0$**.
 
-The ELBO for this process is a sum of losses at each time step $t$, where loss is defined as $L = L\_0 + L\_1
-+ \dots + L\_T$. By construction of the forward $q$ process and backward process, each term, with the exception of $L_0$, of the loss is actually a KL divergence[^11] between 2 Gaussian distributions,
-which we can write explicitly as an L2-loss with respect to the means!
+The ELBO for this process is a sum of losses at each time step $t$, where loss is defined as $L = L\_0 + L\_1 + \dots + L\_T$. By construction of the forward $q$ process and backward process, each term,
+with the exception of $L_0$, of the loss is actually a KL divergence[^11] between 2 Gaussian distributions, which we can write explicitly as an L2-loss with respect to the means!
 
 A direct consequence of the constructed forward process $q$, we can sample **$X_t$** at any arbitrary noise level conditioned on **$X_0$** (since the sums of Gaussians is also Gaussian). As a result, we don't
 need to apply $q$ repeatedly in order to sample **$X_t$**. We have that
 
-$$ q(X_i | X_0) = N(X\_t; \sqrt{\bar{\alpha\_t}}X_0, (1-\bar{\alpha\_t})I) $$
+$$ q(X\_i \| X\_0) = N(X\_t; \sqrt{\bar{\alpha\_t}}X_0, (1-\bar{\alpha\_t})I) $$
 
-with $\alpha\_t := 1-\Beta\_t$ and $\bar{\alpha\_t} := \prod\_{s=1}^{t} \alpha\_{s}$. This equation
-is the "nice property". It means that we can sample Gaussian noise, and scale it appropriatly and add
-it to **$X_0$** to get **$X_t$** directly. This allows us to randomly sample $t$ during training and
-optimize $L_t$.
+with $\alpha\_t := 1-\beta\_t$ and $\bar{\alpha\_t} := \prod\_{s=1}^{t} \alpha\_{s}$. This equation is the "nice property". It means that we can sample Gaussian noise, and scale it appropriatly and add
+it to **$X_0$** to get **$X_t$** directly. Also, note that $\bar{\alpha\_t}$ are functions of the
+$\beta\_t$ variance schedule, and are thus also known and can be precomputed. This allows us to randomly sample $t$ during training and optimize $L_t$.
+
+Thanks to this property, we can, which is shown in [this](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) article, **reparametrize the mean to make the neural network learn the added noise**,
+via a neural network $\epsilon\_{\theta} (**X_t**, t)$, for noise level $t$ in the KL terms which
+constitute the losses. Hence, our neural network becomes a loss predictor, not a mean predictor.
+
+The mean can be computed as:
+
+$$ \mathbf{\mu}\_\theta(\mathbf{x}\_t, t) = \frac{1}{\sqrt{\alpha\_t}} \left( \mathbf{x}\_t - \frac{\beta\_t}{\sqrt{1- \bar{\alpha}t}} \mathbf{\epsilon}\theta(\mathbf{x}\_t, t) \right)$$
+
+The final objective function $L_t$ for a random time step $t$ is now:
+
+$$ | \mathbf{\epsilon} - \mathbf{\epsilon}\_\theta(\mathbf{x}t, t) |^2 = | \mathbf{\epsilon} - \mathbf{\epsilon}\theta( \sqrt{\bar{\alpha}\_t} \mathbf{x}\_0 + \sqrt{(1- \bar{\alpha}\_t) } \mathbf{\epsilon}, t) |^2.$$
+
+Here, $mathbf{x}\_0$ is the initial image, and we see the direct noise level $t$ sample given by the
+fixed forward process. $\mathbf{\epsilon}$ is the pure noise sampled at $t$, and $\mathbf{\epsilon}\theta (\mathbf{x}\_t, t)$ is our neural network.
+
+The neural network is optimized using a simple mean squared error (MSE) between the true and predicted
+Gaussian noise.
+
+Our algorithm is now, in words:
+- take a random sample $\mathbf{x}\_0$ from the real unknwn and possibily complex data distribution,
+  $q(\mathbf{x}\_0)$,
+- we sample a noise level $t$ uniformally between $1$ and $T$,
+- we sample some noise from a Gaussian distribution and corrupt the input by this noise at level $t$,
+- the neural network is trained to predict this noise based on the corrupted image $\mathbf{x}\_t$.
+
+In reality, this process is done on batched of data, as one uses stochastic gradient descent to optimize
+neural networks.
 
 [^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
 
