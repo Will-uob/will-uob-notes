@@ -35,11 +35,11 @@ Let $q(\mathbf{x}\_0)$ be the real data distribution. We can sample from this di
 $q(\mathbf{x}\_t | \mathbf{x}\_{t-1})$ which adds Gaussian noise at each time step $t$, according to a known variance schedule $0 < \beta\_1 < \beta\_2 < ... < \beta\_T < 1$ as
 
 $$
-q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).
+q(\mathbf{x}\_t | \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).[^5]
 $$
 
 Recall that a normal (Gaussian) distribution is defined by 2 parameters: a mean $\mu$ and a variance $\sigma^2 \geq 0$. Basically, each new (slightly noisier) image at time step $t$ is drawn from a
-**conditional Gaussian distribution** with $\mathbf{\mu}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}$ and $\sigma^2\_t = \beta\_t$, which we can do by sampling $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ and then setting $\mathbf{x}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1} +  \sqrt{\beta_t} \mathbf{\epsilon}$.
+**conditional Gaussian distribution** with $\mathbf{\mu}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}$ and $\sigma^2\_t = \beta\_t$, which we can do by sampling $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ and then setting $\mathbf{x}\_t = \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1} +  \sqrt{\beta_t} \mathbf{\epsilon}$[^6].
 
 Note that the $\beta_t$ aren't constant at each time step $t$ (hence the subscript) --- in fact one defines a so-called **"variance schedule"**, which can be linear, quadratic, cosine, etc...
 
@@ -48,7 +48,7 @@ So starting from $\mathbf{x}\_0$, we end up with $\mathbf{x}\_1,  ..., \mathbf{x
 Now, if we knew the conditional distribution $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, then we could run the process in reverse: by sampling some random Gaussian noise $\mathbf{x}\_T$, and then
 gradually "denoise" it so that we end up with a sample from the real distribution $\mathbf{x}_0$.
 
-However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
+However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable[^7] since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
 we're going to leverage a neural network to **approximate (learn) this conditional probability distribution**, let's call it $p\_\theta (\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, with $\theta$ being the
 parameters of the neural network, updated by gradient descent.
 
@@ -59,7 +59,7 @@ is defined by 2 parameters:
 
 so we can parametrize the process as
 
-$$ p\_\theta (\mathbf{x}\_{t-1} \mathbf{x}\_t) = \mathcal{N}(\mathbf{x}\_{t-1}; \mu\_\theta(\mathbf{x}\_{t},t), \Sigma\_\theta (\mathbf{x}_{t},t))$$
+$$ p\_\theta (\mathbf{x}\_{t-1} \mathbf{x}\_t) = \mathcal{N}(\mathbf{x}\_{t-1}; \mu\_\theta(\mathbf{x}\_{t},t), \Sigma\_\theta (\mathbf{x}_{t},t))$$ [^8]
 
 where the mean and variance are also conditioned on the noise level $t$.
 
@@ -72,6 +72,24 @@ This was then later improved in the [Improved diffusion models](https://openrevi
 
 So we continue, assuming that our neural network only needs to learn/represent the mean of this conditional probability distribution.
 
+## Defining an objective function (by reparametrizing the mean)
+To learn the mean of the backward process, the authors observe that the combination of $q$ and $p\_\theta$ can be seen as a variational auto-encoder[^9]. Hence, the **variational lower bound**[^10] can be
+pused to minimize the negative log-likelihood with respect to ground truth data sample **$x_0$**. 
+
+The ELBO for this process is a sum of losses at each time step $t$, where loss is defined as $L = L\_0 + L\_1
++ \dots + L\_T$. By construction of the forward $q$ process and backward process, each term, with the exception of $L_0$, of the loss is actually a KL divergence[^11] between 2 Gaussian distributions,
+which we can write explicitly as an L2-loss with respect to the means!
+
+A direct consequence of the constructed forward process $q$, we can sample **$X_t$** at any arbitrary noise level conditioned on **$X_0$** (since the sums of Gaussians is also Gaussian). As a result, we don't
+need to apply $q$ repeatedly in order to sample **$X_t$**. We have that
+
+$$ q(X_i | X_0) = N(X\_t; \sqrt{\bar{\alpha\_t}}X_0, (1-\bar{\alpha\_t})I) $$
+
+with $\alpha\_t := 1-\Beta\_t$ and $\bar{\alpha\_t} := \prod\_{s=1}^{t} \alpha\_{s}$. This equation
+is the "nice property". It means that we can sample Gaussian noise, and scale it appropriatly and add
+it to **$X_0$** to get **$X_t$** directly. This allows us to randomly sample $t$ during training and
+optimize $L_t$.
+
 [^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
 
 [^2]: See the other perspectives from the article later, they could be useful.
@@ -79,3 +97,17 @@ So we continue, assuming that our neural network only needs to learn/represent t
 [^3]: What the hell is Gaussian noise?
 
 [^4]: This seems to be a key point, since it links to another article.
+
+[^5]: Break this down, what is it saying? It's a normal distribution, but what does it mean? What are the $\beta$? What is $I$?
+
+[^6]: How do we do this, exactly?
+
+[^7]: Intractable problem: fom a computational complexity stance, intractable problems are problems for which there exist no efficient algorithms to solve them.
+
+[^8]: Once again, study the notation here, rather, study the notations of Gaussian distributions. Really focus on what this means!
+
+[^9]: What is a variational auto-encoder?
+
+[^10]: Once again, what is?
+
+[^11]: What is a KL divergence?
