@@ -110,6 +110,24 @@ Our algorithm is now, in words:
 In reality, this process is done on batched of data, as one uses stochastic gradient descent to optimize
 neural networks.
 
+## The neural network
+The following is to be treated as a companion to the code on the [annotated diffusion](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/annotated_diffusion.ipynb) jupyter
+notebook on Colab. It's mostly going to focus on explaining or linking to places which explain concepts introduced.
+
+The neural network, in practice, takes a image of noise, a tensor, and is supposed to return the predicted amount of noise, another tensor, which are of the same shape. For this problem, we
+use a concept similar to that of autoencoders. In autoencoders, there's a "bottleneck" inbetween the encoder and decoder, which forces the network to only keep the most important information
+in the bottleneck layer.
+
+The architecture used by the authors is a U-net[^10]. This is important to us because it introduced residual connections[^11] between the encoder and decoder, greatly improving gradient flow[^12].
+As can be seen below, the model first downsamples the input, and then upsamples it.
+
+![A picture of a u-net](/images/u-net.png)
+
+## Notes on the implementation
+The following is a list of important points I've come across while trying to understand the code.
+
+
+
 [^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
 
 [^2]: See the other perspectives from the article later, they could be useful.
@@ -135,3 +153,10 @@ neural networks.
 [^9]: KL-Divergence, [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence), is a type of statistical distance: a measure of how one probability distribution
        P is different from a second, reference probability distribution Q. A simple interpretation of the KL divergence of P from Q is the expected excess surprise from using Q as a model when the
        actual distribution is P.
+
+[^10]: A [U-net](https://en.wikipedia.org/wiki/U-Net) is a [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) that was developed for biomedical
+       image segmentation at the Computer Science Department of the University of Freiburg.
+
+[^11]: What are residual connections?
+
+[^12]: What is gradient flow?
