@@ -35,9 +35,7 @@ Let $q(\mathbf{x}\_0)$ be the real data distribution. We can sample from this di
 $q(\mathbf{x}\_t | \mathbf{x}\_{t-1})$ which adds Gaussian noise at each time step $t$, according to a known variance schedule $0 < \beta\_1 < \beta\_2 < ... < \beta\_T < 1$ as
 
 $$
-
 q(\mathbf{x}\_t \| \mathbf{x}\_{t-1}) = \mathcal{N}(\mathbf{x}\_t; \sqrt{1 - \beta\_t} \mathbf{x}\_{t-1}, \beta_t \mathbf{I}).
-
 $$ [^5]
 
 Recall that a normal (Gaussian) distribution is defined by 2 parameters: a mean $\mu$ and a variance $\sigma^2 \geq 0$. Basically, each new (slightly noisier) image at time step $t$ is drawn from a
@@ -130,6 +128,11 @@ neural networks.
 
 [^7]: Intractable problem: fom a computational complexity stance, intractable problems are problems for which there exist no efficient algorithms to solve them.
 
-[^9]: What is a variational auto-encoder?
+[^9]: An [autoencoder](https://en.wikipedia.org/wiki/Autoencoder) is a type of artificial neural network used to learn efficient codings of unlabeled data.
+      An autoencoder learns two functions: an encoding function that transforms the input data, and a decoding function that recreates the input data from
+      the encoded representation. [Variational autoencoders](https://en.wikipedia.org/wiki/Variational_autoencoder), meanwhile, are probabilistic generative
+      models that require neural networks as only a part of their overall structure.
 
-[^11]: What is a KL divergence?
+[^11]: KL-Divergence, [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence), is a type of statistical distance: a measure of how one probability distribution
+       P is different from a second, reference probability distribution Q. A simple interpretation of the KL divergence of P from Q is the expected excess surprise from using Q as a model when the
+       actual distribution is P.

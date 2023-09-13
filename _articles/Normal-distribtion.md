@@ -5,9 +5,6 @@ title: The normal distribution, and it's key properties
 tags: Statistics Probability AI
 ---
 
-### A reminder
-Before we begin, keep in mind this is a sister article to "What is stable diffusion?". Hence, it will be written with the purpose of demystifying some of the maths in that article. Now, onwards!
-
 # What is the Normal Distribution?
 The Normal Distribution, also known as the Gaussian distribution, is a type of continuous probability
 distribution[^1] for a real-valued random variable. The general form of its probability density
@@ -36,7 +33,7 @@ the formula corresponds to a certain shape, since they mention inflection points
 Every normal distribution is a version of the standard normal distribution, whose domain has been
 streched by a factor $\sigma$, and then translated by $\mu$:
 
-$$ f(x | \mu, \theta^2) = \frac{1}{\theta}\varphi(\frac{x-\mu}{\theta}) $$
+$$ f(x \| \mu, \theta^2) = \frac{1}{\theta}\varphi(\frac{x-\mu}{\theta}) $$
 
 The probability density must be scaled by $\frac{1}{\theta}$ so that the integral[^5] is still $1$.
 
