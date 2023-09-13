@@ -124,8 +124,85 @@ As can be seen below, the model first downsamples the input, and then upsamples 
 ![A picture of a u-net](/images/u-net.png)
 
 ## Notes on the implementation
-The following is a list of important points I've come across while trying to understand the code.
+The implementation of stable diffusion has a lot of concepts that I've either not come across, or don't know how to do in PyTorch. So, think of this more of a list of points that I need to work through to
+truly appreciate what's going on here. Also, I won't mention any of the PyTorch methods that are seen in the article, since I'm still pretty new to PyTorch as a whole. It'd probably be good for me to take
+a tutorial course using it later on.
 
+### Position embeddings
+Parameters of the neural network, the noise primarily, are shared across time, so the authors employ sinusoidal position embeddings to encode $t$, inspired by the transformer. The
+idea of this is that it makes the neural network "know" at which particular noise level (time step) we're operation on for each batch. From this section, key observations are:
+- I need to learn about **convolutions**,
+- so that I can learn about **transformers**,
+- so that I can learn about **position embeddings**.
+
+Furthermore, I need to learn about residual blocks, which are probably connected to the next section.
+
+### ResNet / ConvNeXT block
+These form the core building block of our model. The DDPM authors employed a Wide ResNet block, but Phil Wang added support for a ConvNeXT block. Either can be used for the final U-Net architecture.
+
+Notes from looking at the code:
+- What is [group normalization](https://en.wikipedia.org/wiki/Convolutional_neural_network)?
+- What is a SiLU?
+- What is a [ConvNeXT block](https://arxiv.org/abs/2201.03545)?
+- What is a ResNet block?
+
+### Attention module
+Attention modules were added in between convolutional blocks by the authors. "Attention is the building block of the famous [Transformer architecture](https://arxiv.org/abs/1706.03762). Phil Wang used
+two variants of attention, regular multi-head self-attention (as used in the Transformer), and a [linear attention variant](https://github.com/lucidrains/linear-attention-transformer). The writers of the
+article recommend to read [this](https://jalammar.github.io/illustrated-transformer/) to understand more about transformers and attention modules.
+
+### Group normalization
+The authors interleave the convolutional/attention layers of the U-Net with [group normalization](https://arxiv.org/abs/1803.08494). The writers of the article then define a ```Prenorm``` class, which
+is used to apply groupnorm before the attention layer. However, note there's a [debate](https://tnq177.github.io/data/transformers_without_tears.pdf) about whether to apply normalization before or after
+attention in Transformers.
+
+### Conditional U-Net
+We've now got the building blocks, so now we can define the whole neural network! Remember, the job of $\epsilon\_{\theta} (\mathbf{x}\_t , t)$ is to take in a batch of noisy images + noise levels, and
+output the noise added to the input. More formally, we take in a batch of noisy images of size ```(batch_size, num_channels, height, width)``` as well as a batch of noise levels of size ```(batch_size, 1)```,
+and then output a tensor of shape ```batch_size, num_channels, height, width)```.
+
+The network is built up as follows:
+- first, a convolutional layer is applied on the batch of noisy images, and position embeddings are computed for the noise levels
+- next, a sequence of downsampling stages are applied. Each downsampling stage consists of 2 ResNet/ConvNeXT blocks + groupnorm + attention + residual connection + a downsample operation
+  at the middle of the network, again ResNet or ConvNeXT blocks are applied, interleaved with attention
+- next, a sequence of upsampling stages are applied. Each upsampling stage consists of 2 ResNet/ConvNeXT blocks + groupnorm + attention + residual connection + an upsample operation
+- finally, a ResNet/ConvNeXT block followed by a convolutional layer is applied.
+
+The writers of the article as suggest to read the [following](http://karpathy.github.io/2019/04/25/recipe/), to understand how to best create neural networks.
+
+### Defining the forward process
+We define the forward process by gradually adding noise to an image, in a number of time steps $T$, using a **variance schedule**. The original paper used a linear scheduler, but it was
+revealed later on that a cosine schedule gave better results. Some key features of these schedulers seem to be:
+- cumulative variance variable,
+- an ```extract``` function, which allows us to extract the appropriate $t$ index for a batch of indicies,
+- converting a PIL image to a tensor, so that we may add noise, using a transform and reverse transform function,
+
+### Define a PyTorch Dataset + DataLoader
+Really just read [this](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html) article on PyTorch datasets, and [this](https://huggingface.co/docs/datasets/index) article for how to use the
+HuggingFace datasets in the code. The rest is explaned in the Colab document.
+
+### Sampling
+The process for sampling is summarised in the following manner:
+
+![Data sampling](/images/sampling.png)
+
+To generate new images from a diffusion model, we reverse the diffusion process: we start from $T$, where we sample pure noise from a Gaussian distribution, and then use our neural network to gradually
+denoise it, until $t=0$. Remember, the variance is known ahead of time.
+
+### Train the model and inference
+This is done using PyTorch. The training procedure seems to be pretty standard, similar to what was done
+using fastai. Question: What is inference?
+
+### Follow up reads
+DDPM paper showed that diffusion models are promising for (un)conditional image generation. This has
+since been immensely improved, most notably for text-conditional image generation. The following
+are some important papers:
+- Improved Denoising Diffusion Probabilistic Models [(Nichol et al., 2021)](https://arxiv.org/abs/2102.09672): finds that learning the variance of the conditional distribution (besides the mean) helps in improving performance
+- Cascaded Diffusion Models for High Fidelity Image Generation [(Ho et al., 2021)](https://arxiv.org/abs/2106.15282): introduce cascaded diffusion, which comprises a pipeline of multiple diffusion models that generate images of increasing resolution for high-fidelity image synthesis
+- Diffusion Models Beat GANs on Image Synthesis [(Dhariwal et al., 2021)](https://arxiv.org/abs/2105.05233): show that diffusion models can achieve image sample quality superior to the current state-of-the-art generative models by improving the U-Net architecture, as well as introducing classifier guidance
+- Classifier-Free Diffusion Guidance [(Ho et al., 2021)](https://openreview.net/pdf?id=qw8AKxfYbI): shows that you don't need a classifier for guiding a diffusion model by jointly training a conditional and an unconditional diffusion model with a single neural network
+- Hierarchical Text-Conditional Image Generation with CLIP Latents (DALL-E 2) [(Ramesh et al., 2022)](https://cdn.openai.com/papers/dall-e-2.pdf): use a prior to turn a text caption into a CLIP image embedding, after which a diffusion model decodes it into an image
+- Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding (ImageGen) [(Saharia et al., 2022)](https://arxiv.org/abs/2205.11487): shows that combining a large pre-trained language model (e.g. T5) with cascaded diffusion works well for text-to-image synthesis
 
 
 [^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
