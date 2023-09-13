@@ -24,11 +24,6 @@ from a Gaussian distribution at each time step $t$, which is added to the image 
 time step, you end up with an isotropic Gaussian distribution[^4], at $t=T$ via a gradual process.
 
 ## A mathematical viewpoint
-Beware! The following is probably going to be very difficult to summarise, though I'll try my best. This also seems to be the most difficult aspect of understanding, the underlying maths behind these
-networks seems to be quite advanced sometimes.
-
-Also, note that it's going to be very important to revise the normal distribution, since it seems to be coming up everywhere.
-
 Ultimately we need a loss function which our neural network needs to optimize, so let's be a little more formal.
 
 Let $q(\mathbf{x}\_0)$ be the real data distribution. We can sample from this distribution to get an image, $\mathbf{x}\_0 \sim q(\mathbf{x}\_0)$. We define the forward diffusion process
@@ -48,7 +43,7 @@ So starting from $\mathbf{x}\_0$, we end up with $\mathbf{x}\_1,  ..., \mathbf{x
 Now, if we knew the conditional distribution $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, then we could run the process in reverse: by sampling some random Gaussian noise $\mathbf{x}\_T$, and then
 gradually "denoise" it so that we end up with a sample from the real distribution $\mathbf{x}_0$.
 
-However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable [^7] since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
+However, we don't know $p(\mathbf{x}\_{t-1} | \mathbf{x}\_t)$. It's intractable [^6] since it requires knowing the distribution of all possible images in order to calculate this conditional probability. Hence,
 we're going to leverage a neural network to **approximate (learn) this conditional probability distribution**, let's call it $p\_\theta (\mathbf{x}\_{t-1} | \mathbf{x}\_t)$, with $\theta$ being the
 parameters of the neural network, updated by gradient descent.
 
@@ -73,11 +68,11 @@ This was then later improved in the [Improved diffusion models](https://openrevi
 So we continue, assuming that our neural network only needs to learn/represent the mean of this conditional probability distribution.
 
 ## Defining an objective function (by reparametrizing the mean)
-To learn the mean of the backward process, the authors observe that the combination of $q$ and $p\_\theta$ can be seen as a variational auto-encoder[^9]. Hence, the **variational lower bound** can be
-used to minimize the negative log-likelihood with respect to ground truth data sample **$x_0$**.
+To learn the mean of the backward process, the authors observe that the combination of $q$ and $p\_\theta$ can be seen as a variational auto-encoder[^7]. Hence, the [**variational lower bound**](https://xyang35.github.io/2017/04/14/variational-lower-bound/) can be used to minimize the negative log-likelihood[^8] with respect to ground truth data sample **$x_0$**.
 
-The ELBO for this process is a sum of losses at each time step $t$, where loss is defined as $L = L\_0 + L\_1 + \dots + L\_T$. By construction of the forward $q$ process and backward process, each term,
-with the exception of $L_0$, of the loss is actually a KL divergence[^11] between 2 Gaussian distributions, which we can write explicitly as an L2-loss with respect to the means!
+The evidence lower bound ([EBLO](https://en.wikipedia.org/wiki/Evidence_lower_bound)) for this process is a sum of losses at each time step $t$, where loss is defined as $L = L\_0 + L\_1 + \dots + L\_T$.
+By construction of the forward $q$ process and backward process, each term, with the exception of $L_0$, of the loss is actually a KL divergence[^9] between 2 Gaussian distributions, which we can write
+explicitly as an L2-loss with respect to the means!
 
 A direct consequence of the constructed forward process $q$, we can sample **$X_t$** at any arbitrary noise level conditioned on **$X_0$** (since the sums of Gaussians is also Gaussian). As a result, we don't
 need to apply $q$ repeatedly in order to sample **$X_t$**. We have that
@@ -114,6 +109,7 @@ Our algorithm is now, in words:
 
 In reality, this process is done on batched of data, as one uses stochastic gradient descent to optimize
 neural networks.
+
 [^1]: Ok, so it seems that there are multiple types of models in deep learning. I wonder what Perceptrons, CNNs and LSTSs are?
 
 [^2]: See the other perspectives from the article later, they could be useful.
@@ -126,13 +122,16 @@ neural networks.
 
 [^5]: <a class="wiki-link" href="/articles/normal-distribution">See here.</a>
 
-[^7]: Intractable problem: fom a computational complexity stance, intractable problems are problems for which there exist no efficient algorithms to solve them.
+[^6]: Intractable problem: fom a computational complexity stance, intractable problems are problems for which there exist no efficient algorithms to solve them.
 
-[^9]: An [autoencoder](https://en.wikipedia.org/wiki/Autoencoder) is a type of artificial neural network used to learn efficient codings of unlabeled data.
+[^7]: An [autoencoder](https://en.wikipedia.org/wiki/Autoencoder) is a type of artificial neural network used to learn efficient codings of unlabeled data.
       An autoencoder learns two functions: an encoding function that transforms the input data, and a decoding function that recreates the input data from
       the encoded representation. [Variational autoencoders](https://en.wikipedia.org/wiki/Variational_autoencoder), meanwhile, are probabilistic generative
       models that require neural networks as only a part of their overall structure.
 
-[^11]: KL-Divergence, [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence), is a type of statistical distance: a measure of how one probability distribution
+[^8]: The negative log-likelihood, indeed pretty much all of the maths in this article, is a subset of [Bayesian Statistics](https://en.wikipedia.org/wiki/Bayesian_statistics), where
+      the log-likelihood can be seen in [this](https://en.wikipedia.org/wiki/Likelihood_function#Log-likelihood) article.
+
+[^9]: KL-Divergence, [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence), is a type of statistical distance: a measure of how one probability distribution
        P is different from a second, reference probability distribution Q. A simple interpretation of the KL divergence of P from Q is the expected excess surprise from using Q as a model when the
        actual distribution is P.
