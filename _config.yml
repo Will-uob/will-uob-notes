@@ -2,9 +2,9 @@
 # --- USER CONFIGURATION --- #
 ##############################
 
-title: Goodtimes 
+title: Will-uob
 description: My notes
-url: https://goodtimesnotebook.netlify.app/
+url: https://will-uob.netlify.app
 repository: Will-uob/will-uob-notes
 
 ##############################################
@@ -35,7 +35,7 @@ jekyll_analytics:        # Uncomment desired analytics tracker and input details
 # --- EXOCORE CONFIGURATION --- #
 #################################
 
-baseurl: '' 
+baseurl: ''
 source: .
 destination: _site
 background: "red"
