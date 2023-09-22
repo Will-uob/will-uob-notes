@@ -9,17 +9,10 @@ tags: Maths Probability Algorithms
 In this case we refer to convolutions in the discrete case, though the idea is similar when put into the continuous case. Mathematically, we define a convolution using the following formulae:
 
 $$
-(f \ast g)(t) := \int_{-\infty}^{\infty} f(\tau)g(t-\tau)d\tau,
-$$
-
-or
-
-$$
 (f \ast g)[n] := \sum_{m=-\infty}^{\infty} f[n-m]g[m].
 $$
 
-We focus, as said, on the latter formula. In words, the $n^{\text{th}}$ term of the convolution of two functions, $f$ and $g$, is the sum of the products of $f(n)$ and $f(n-m)$. This isn't very helpful
-for visualising or understanding why we might want to do this, so let's look at some examples.
+In words, the $n^{\text{th}}$ term of the convolution of two functions, $f$ and $g$, is the sum of the products of $f[n-m]$ and $g[m]$. This isn't very helpful for visualising or understanding why we might want to do this, so let's look at some examples.
 
 ### Example one: Convolutions in probability
 Suppose we have two, fair, six-sided dice, and wish to calculate the probability of a certain combination of sums appearing. We all know the general method for this, which is to draw out a six-by-six grid,
@@ -30,7 +23,8 @@ and then using that figure out our probabilies. For notation, we call our dice $
 However, I propose another way of looking at this setup, which kind of looks like a sliding windows problem. Arrange one line of six boxes in increasing order, and the other in decreasing order, starting so that
 the first dice of the top row is allinged with the last dice of the second. In this way, we immediately see that $P(D\_1 + D\_2 = 2) = a\_1 \cdot b\_1 = \frac{1}{36}$. Then, we slide the bottom window to the
 right, and we can see that $P(D\_1 + D\_2 = 3) = a\_1 \cdot b\_2 + a\_2 \dot b\_1$. We continue in this manner to find our probabilities, which are in fact the $n^{\text{th}}$ terms of the convolutions of the
-probabilities represented by the lists $(a\_i)$ and $(b\_i)$.
+probabilities represented by the lists $(a\_i)$ and $(b\_i)$. For example, below shows the process
+for calculating the probability of $P(D\_1 + D\_2 = 4)$.
 
 ![Amazing gif which illustrates what I mean](https://i.stack.imgur.com/rXTbw.gif)
 
@@ -42,6 +36,11 @@ and the image, with some exceptions being made for the corners, which can be sol
 
 ![Image of the Gaussian blur](https://hackaday.com/wp-content/uploads/2021/06/gaussblurkernal-1.jpg)
 
-### How it works under the hood, the efficient algorithm for calculating convolutions
+### A brief mention of the FFT algorithm
 The normal way of calculating a convolution is $O(n^2)$, which is not very efficient. Instead of this method, we can using Fourier transforms and the FFT algorithm to calculate the convolution using only
 $O(N log(N))$ operations.
+
+### Additional resources
+The resources I used to write this were primarily:
+- [This](https://www.youtube.com/watch?v=KuXjwB4LzSA&t=346s) video by 3b1b.
+- [This](https://www.youtube.com/watch?v=C_zFhWdM4ic&t=0s) video by Computerphile.
