@@ -31,7 +31,7 @@ $$
 Please note that as long as our basis vectors span the space, the choice of our basis vectors doesn't matter. What do I mean by span?
 
 ### The span and linear combinations
-The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set $\{ a\overrightarrow{v} + b\overrightarrow{w} : a \in \mathbb{R}, b \in \mathbb{R}\}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
+The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set $\\{ a\overrightarrow{v} + b\overrightarrow{w} : a \in \mathbb{R}, b \in \mathbb{R}\\}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
 
 But what about in three dimensions? Well, in that case we add a third vector, which we can think of as a rope which we use to pull the two-dimensional plane through space. But, what if this third vector lies on
 this plane?
