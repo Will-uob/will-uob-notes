@@ -1,12 +1,11 @@
 ---
-date: 18-09-2023
-title: What are convolutions and convolutional neural networks
 published: true
-tags: AI ML ImageNets
+title: What are convolutions?
+date: 2023-09-22
+tags: Maths Probability Algorithms
 ---
 
-# What are convolutions and convolutional neural networks?
-## What is a convolution?
+# What are convolutions?
 In this case we refer to convolutions in the discrete case, though the idea is similar when put into the continuous case. Mathematically, we define a convolution using the following formulae:
 
 $$
@@ -46,12 +45,3 @@ and the image, with some exceptions being made for the corners, which can be sol
 ### How it works under the hood, the efficient algorithm for calculating convolutions
 The normal way of calculating a convolution is $O(n^2)$, which is not very efficient. Instead of this method, we can using Fourier transforms and the FFT algorithm to calculate the convolution using only
 $O(N log(N))$ operations.
-
-
-## What is a convolutional neural network?
-A convolution neural network is, essentially, a combination of a deep neural network, and kernel convolutions.
-
-![Image of a convolutional neural network](https://bestcase.files.wordpress.com/2011/01/dicediagram.jpg)
-
-Instead of using neurons, CNNs replace each node with a kernel convolution.
-
