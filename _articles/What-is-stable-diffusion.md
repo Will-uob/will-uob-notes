@@ -74,10 +74,10 @@ The evidence lower bound ([EBLO](https://en.wikipedia.org/wiki/Evidence_lower_bo
 By construction of the forward $q$ process and backward process, each term, with the exception of $L_0$, of the loss is actually a KL divergence[^9] between 2 Gaussian distributions, which we can write
 explicitly as an L2-loss with respect to the means!
 
-A direct consequence of the constructed forward process $q$, we can sample **$X_t$** at any arbitrary noise level conditioned on **$X_0$** (since the sums of Gaussians is also Gaussian). As a result, we don't
-need to apply $q$ repeatedly in order to sample **$X_t$**. We have that
+A direct consequence of the constructed forward process $q$, we can sample $\mathbf{x_t}$ at any arbitrary noise level conditioned on $\mathbf{x\_0}$ (since the sums of Gaussians is also Gaussian). As a result, we don't
+need to apply $q$ repeatedly in order to sample $\mathbf{x\_t}$. We have that
 
-$$ q(X\_i \| X\_0) = N(X\_t; \sqrt{\bar{\alpha\_t}}X_0, (1-\bar{\alpha\_t})I) $$
+$$ q(\mathbf{x}\_i \| mathbf{x}\_0) = N(\mathbf{x}\_t; \sqrt{\bar{\alpha\_t}}X_0, (1-\bar{\alpha\_t})I) $$
 
 with $\alpha\_t := 1-\beta\_t$ and $\bar{\alpha\_t} := \prod\_{s=1}^{t} \alpha\_{s}$. This equation is the "nice property". It means that we can sample Gaussian noise, and scale it appropriatly and add
 it to **$X_0$** to get **$X_t$** directly. Also, note that $\bar{\alpha\_t}$ are functions of the
