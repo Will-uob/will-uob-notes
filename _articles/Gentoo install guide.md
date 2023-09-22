@@ -5,8 +5,6 @@ date: 2022-10-25
 tags: linux gentoo filesystems
 ---
 
-<br>
-
 # Gentoo Install
 
 Hello, and welcome to my Gentoo Installation Guide!
@@ -95,10 +93,10 @@ Now that you have a fully working gentoo install, I'd recommend installing xorg,
 - Add display-manager (or any display manager you prefer) to default runtime
 - Install alsa-utils for audio
 
-[^1] Make sure that your ```/boot``` is where ```/dev/sda1``` is mounted, since this is very important when installing grub!
+[^1]: Make sure that your ```/boot``` is where ```/dev/sda1``` is mounted, since this is very important when installing grub!
 
-[^2] I installed packages ```sys-kernel/linux-firmware```, ```sys-kernel/installkernel-gentoo``` and ```sys-kernel/gentoo-kernel-bin```.
+[^2]: I installed packages ```sys-kernel/linux-firmware```, ```sys-kernel/installkernel-gentoo``` and ```sys-kernel/gentoo-kernel-bin```.
 
-[^3] You can setup fstab automatically by using [this](https://github.com/glacion/genfstab) install script. Just use wget to download it.
+[^3]: You can setup fstab automatically by using [this](https://github.com/glacion/genfstab) install script. Just use wget to download it.
 
-[^4] It was already installed, so you can just add it to the runtime by doing ```rc-update add sshd default```.
+[^4]: It was already installed, so you can just add it to the runtime by doing ```rc-update add sshd default```.
