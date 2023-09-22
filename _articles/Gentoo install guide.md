@@ -19,6 +19,9 @@ This will be a UEFI install on a Lenovo X230, and we will skip customizing our k
 
 ### Partitions
 I used f-disk to partition my disk, and created the following GPT table:
+
+| Size          | Partition | Ext   | Purpose       | Command                        |
+| ------------- | --------- | ----- | ------------- | ------------------------------ |
 | 1G            | /dev/sda1 | FAT32 | used for boot | ```mkfs.fast -F32 /dev/sda1``` |
 | 8G            | /dev/sda2 | SWAP  | used for swap | ```mkswap /dev/sda2```         |
 | Rest of drive | /dev/sda3 | EXT4  | used for `/`  | ```mkfs.ext4 /dev/sda3```      |
@@ -59,6 +62,9 @@ While technically not part of the networking process, I'd recommend you to use t
 
 ### System tools
 **Read the handbook**. Before starting, setup your ```/etc/rc.conf``` and ```/etc/conf.d/keymaps```, to make the process smoother. The following is a table of categories and packages I installed for them.
+
+| Processes     | Package  |
+| ------------- | -------- |
 | System logger | sysklogd |
 | Cron Daemon   | cronie   |
 | File indexing | mlocate  |
@@ -90,6 +96,9 @@ Now that you have a fully working gentoo install, I'd recommend installing xorg,
 - Install alsa-utils for audio
 
 [^1] Make sure that your ```/boot``` is where ```/dev/sda1``` is mounted, since this is very important when installing grub!
+
 [^2] I installed packages ```sys-kernel/linux-firmware```, ```sys-kernel/installkernel-gentoo``` and ```sys-kernel/gentoo-kernel-bin```.
+
 [^3] You can setup fstab automatically by using [this](https://github.com/glacion/genfstab) install script. Just use wget to download it.
+
 [^4] It was already installed, so you can just add it to the runtime by doing ```rc-update add sshd default```.

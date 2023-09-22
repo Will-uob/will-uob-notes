@@ -26,13 +26,13 @@ The two fundamental operations involving vectors are:
 ### Basis vectors
 In a coordinate system with two dimensions, we have two special vectors, $\hat{i}$ and $\hat{j}$, which represent our basis vectors. For example, usually in a cartesian plane we have basis vectors,
 $$
-\mathbf{\hat{i}} = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \text{and} \mathbf{\hat{j}} = \begin{bmatrix} 0 \\\ 1 \end{bmatrix}
+\mathbf{\hat{i}} = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \text{ and } \mathbf{\hat{j}} = \begin{bmatrix} 0 \\\ 1 \end{bmatrix}
 $$
 
 Please note that as long as our basis vectors span the space, the choice of our basis vectors doesn't matter. What do I mean by span?
 
 ### The span and linear combinations
-The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set $\{ a\overrightarrow{v} + b\overrightarrow{w} \| a \in \mathbb{R}, b \in \mathbb{R}\}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
+The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set ${ a\overrightarrow{v} + b\overrightarrow{w}  \| a \in \mathbb{R}, b \in \mathbb{R}}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
 
 But what about in three dimensions? Well, in that case we add a third vector, which we can think of as a rope which we use to pull the two-dimensional plane through space. But, what if this third vector lies on
 this plane?
@@ -53,7 +53,7 @@ How to we describe a linear transformation? All we need is to record the changes
 change after the transformation, only the values of our basis vectors. Hence, we have something akin to, in the two-dimensional space:
 
 $$
-\hat{v}\_{\text{new}} = v\_1 \begin{bmatirx} a \\\ c \end{bmatrix} + v\_2 \begin{bmatrix} b \\\ d \end{bmatrix} = \begin{bmatrix} a v\_1 + b v\_2 \\\ c v\_1 + d v\_2 \end{bmatrix}
+\hat{v}\_{\text{new}} = v\_1 \begin{bmatrix} a \\\ c \end{bmatrix} + v\_2 \begin{bmatrix} b \\\ d \end{bmatrix} = \begin{bmatrix} a v\_1 + b v\_2 \\\ c v\_1 + d v\_2 \end{bmatrix}
 $$
 
 Where the vectors $\begin{bmatrix} a \\\ c \end{bmatrix}$ and $\begin{bmatrix} b \\\ d \end{bmatrix}$ are our transformed basis vectors, $\hat{i}$ and $\hat{j}$. We can represent this linear transformation
@@ -72,10 +72,10 @@ it will squish all of two dimensional space into a line, which represents the sp
 ## Matrix multiplication as composition
 This episode was simple. Essentially, if you want to describe subsequent linear transformations, $T\_1(\hat{v})$ and $T\_2(\hat{v})$, then you can write this in terms of matrices as
 $$
-T\_2(T\_1(\hat(v))) = T\_3(\hat(v))
+T\_2(T\_1( \hat(v) )) = T\_3( \hat(v) )
 $$
 
-where $T\_3(\hat(v))$ is the composition of $T\_1$ and $T\_2$, which we got by multiplying the two matrices representing those transformations. This way of viewing linear transformations gives us a few ideas
+where $T\_3( \hat(v) )$ is the composition of $T\_1$ and $T\_2$, which we got by multiplying the two matrices representing those transformations. This way of viewing linear transformations gives us a few ideas
 about their properties, for example they're associative, but not commutative (that is, order matters).
 
 ## The determinant
@@ -141,7 +141,7 @@ We can go through the following derivation to find a way of determining whether 
 $$
 A \overrightarrow{v} = \lambda \overrightarrow{v} \iff A \overrightarrow{v} = (\lambda I) \overrightarrow{v} \iff (A - \lambda I) \overrightarrow{v} = \overrightarrow{0}
 $$
-If $\det(A - \lambda I), then we have an eigenvector. However, when $\det(A - \lambda I) = 0$, we get imaginary solutions, so we have no eigenvectors.[^8]
+If $\det(A - \lambda I)$, then we have an eigenvector. However, when $\det(A - \lambda I) = 0$, we get imaginary solutions, so we have no eigenvectors.[^8]
 
 ### What is an eigenbasis?
 If we have a diagonal matrix representing our transformation, then all our basis vectors are eigenvectors, with the diagonal entries of this matrix being the associated eigenvalues. This is a nice property,

@@ -1,7 +1,7 @@
 ---
 date: 18-09-2023
 title: What are convolutions and convolutional neural networks
-published: false
+published: true
 tags: AI ML ImageNets
 ---
 
@@ -43,12 +43,15 @@ and the image, with some exceptions being made for the corners, which can be sol
 
 ![Image of the Gaussian blur](https://hackaday.com/wp-content/uploads/2021/06/gaussblurkernal-1.jpg)
 
-
 ### How it works under the hood, the efficient algorithm for calculating convolutions
+The normal way of calculating a convolution is $O(n^2)$, which is not very efficient. Instead of this method, we can using Fourier transforms and the FFT algorithm to calculate the convolution using only
+$O(N log(N))$ operations.
+
 
 ## What is a convolutional neural network?
-A convolution neural network is, essentially, a combination of a deep neural network, and kernel convolutions. 
+A convolution neural network is, essentially, a combination of a deep neural network, and kernel convolutions.
 
 ![Image of a convolutional neural network](https://uploads-ssl.webflow.com/614c82ed388d53640613982e/646218745ba944b514f8d350_lenet%20architecture.webp)
 
+Instead of using neurons, CNNs replace each node with a kernel convolution.
 
