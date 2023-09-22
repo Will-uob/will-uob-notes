@@ -8,8 +8,7 @@ tags: LinAlg Maths
 # Linear algebra notes
 The following is a summary of the [essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) course, by [3b1b](https://www.youtube.com/@3blue1brown). I would highly
 recommend you watch the original series, since it gives many amazing visualisations and examples, which I'll be skipping here. The hope is that by mentioning only the essentials, it'll force me to think
-about the problems visually, without the aid of his videos, and give me a good intuitive understanding of the subject before I begin my second linear algebra course. Furthermore, it provides a nice skeleton
-to build upon in my next linear algebra course.
+about the problems visually, without the aid of his videos, and give me a good intuitive understanding of the subject before I begin my second linear algebra course.
 
 ## What are vectors?
 There are three points of view from which to answer this question, those of:
@@ -26,13 +25,13 @@ The two fundamental operations involving vectors are:
 ### Basis vectors
 In a coordinate system with two dimensions, we have two special vectors, $\hat{i}$ and $\hat{j}$, which represent our basis vectors. For example, usually in a cartesian plane we have basis vectors,
 $$
-\mathbf{\hat{i}} = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \text{ and } \mathbf{\hat{j}} = \begin{bmatrix} 0 \\\ 1 \end{bmatrix}
+\mathbf{\hat{i}} = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \space \text{ and } \space \mathbf{\hat{j}} = \begin{bmatrix} 0 \\\ 1 \end{bmatrix}
 $$
 
 Please note that as long as our basis vectors span the space, the choice of our basis vectors doesn't matter. What do I mean by span?
 
 ### The span and linear combinations
-The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set ${ a\overrightarrow{v} + b\overrightarrow{w}  \| a \in \mathbb{R}, b \in \mathbb{R}}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
+The span of vectors $\overrightarrow{v}$ and $\overrightarrow{w}$ is the set of all their linear combinations, that is, the set $\{ a\overrightarrow{v} + b\overrightarrow{w} : a \in \mathbb{R}, b \in \mathbb{R}\}$. Hence, our basis vectors span the space if the set of their linear combinations can represent the entire space.
 
 But what about in three dimensions? Well, in that case we add a third vector, which we can think of as a rope which we use to pull the two-dimensional plane through space. But, what if this third vector lies on
 this plane?
@@ -72,10 +71,10 @@ it will squish all of two dimensional space into a line, which represents the sp
 ## Matrix multiplication as composition
 This episode was simple. Essentially, if you want to describe subsequent linear transformations, $T\_1(\hat{v})$ and $T\_2(\hat{v})$, then you can write this in terms of matrices as
 $$
-T\_2(T\_1( \hat(v) )) = T\_3( \hat(v) )
+T\_2(T\_1(\hat{v})) = T\_3(\hat{v})
 $$
 
-where $T\_3( \hat(v) )$ is the composition of $T\_1$ and $T\_2$, which we got by multiplying the two matrices representing those transformations. This way of viewing linear transformations gives us a few ideas
+where $T\_3(\hat{v})$ is the composition of $T\_1$ and $T\_2$, which we got by multiplying the two matrices representing those transformations. This way of viewing linear transformations gives us a few ideas
 about their properties, for example they're associative, but not commutative (that is, order matters).
 
 ## The determinant
@@ -85,14 +84,14 @@ The determinant of a linear transformation is the factor by which a given region
 To begin, what is the purpose of linear algebra as a whole? The answer is to solve systems of linear equations, which can be represented in the form $A \overrightarrow{x} = \overrightarrow{v}$. That is,
 we're looking for a vector $\overrightarrow{x}$ such that after our transformation $A$ it lands on $\overrightarrow{v}$. How we view our solutions to these equations depends on the value of $\det(A)$.
 
-### When $\det(A) \neq 0$
+### When $\underline{\det(A) \neq 0}$
 In this case, we know that there will be one, and only one, vector which lands on $v$, which we can find by finding the inverse of $A$, $A^{-1}$. This is done by finding a solution to the equation
 $$
 A^{-1}A = I
 $$
 and it's been proved that if $\det(A) \neq 0$, then $\det(A^{-1})$ exists.
 
-### When $\det(A) = 0$
+### When $\underline{\det(A) = 0}$
 In this case, $A^{-1}$ does not exist[^2]. It's still possible that a solution can exist, however you have to be lucky enough for the vector to exist in the new solution space. For example, if your solution
 in 3-dimensions lies on a plane that the linear transformation squishes that 3-dimensional space into, then it would still be a solution.
 
@@ -170,3 +169,5 @@ can be proved that the same properties apply to functions as to vectors. This le
       rotation in terms of axis of rotation, then as a $3 \times 3$ transformation.
 
 [^7]: In the video series there was a note attached to this.
+
+[^8]: The video adds a caveat to this.
