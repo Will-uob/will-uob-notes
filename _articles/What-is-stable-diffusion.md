@@ -10,6 +10,7 @@ The following are notes taken from the following sources:
 - [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion),
 - [Diffusers](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/diffusers_intro.ipynb),
 - The [video](https://www.youtube.com/watch?v=1CIpzeNxIhU) by Computerphile.
+- [This](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) article, which explains at lot of the maths.
 
 ## What is a diffusion model.
 Like other generative models, such as GANs, VAEs or Normalisng Flows[^1], diffusion models (also known as Denoising Diffusion Probabilistic Models, DDPMs, score-based generative models, or simply

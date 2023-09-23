@@ -16,3 +16,6 @@ then passes these encodings to the next encoder layer.
 
 The decoder then takes these encodings and uses their derived context to generate the output sequence. Please note that this is not a linear processing of data; transformers use an attention mechanism, which
 provide context around items in the input sequence.
+
+## Attention is all you need
+This is a summary of this [article](https://arxiv.org/pdf/1706.03762.pdf).
