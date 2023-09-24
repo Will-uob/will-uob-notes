@@ -31,12 +31,18 @@ z = f(x,y), (x,y) \in D \subseteq \mathbb{R}^2, z \in C \subseteq \mathbb{R}.
 $$
 
 ### What are vertical sections?
-For a function, $z = f(x,y)$, **vertical sections** $z = f(x,c)$ is the intersection of the
-surface $z=f(x,y)$ and a vertical plane $y=c$.
+For a function, $z = f(x,y)$, the **vertical sections** are when we fix the value of either the
+$x$ or $y$ variable. 
+
+More specifically, $z = f(x,c)$ is the intersection of the surface $z=f(x,y)$ and a vertical plane 
+$y=c$, and $z = f(c, y)$ is the intersection of the surface $z=f(x,y)$ and a vertical plane $x=c$.
 
 ### What are level curves?
-For a function $c = f(x,y)$, it's the intersection of $z = f(x,y)$, the surface, and a horizontal plane
-$z = c$.
+
+For a function $z = f(x,y)$, the **level curves** are when we fix the value of $z$.
+
+More specifically, the function $c = f(x,y)$, is the intersection of $z = f(x,y)$, the surface, and 
+a horizontal plane $z = c$.
 
 ### What are partial derivatives?
 #### What is the derivative of a single variable function?
@@ -52,3 +58,9 @@ $$
 $$
 
 #### What is a partial derivative?
+For the function $z = f(x,y)$, let $y=b$, where $b \in \mathbb{R}$. Since $z=f(x,b)$ is the intersection
+of the surface $z=f(x,y)$ and $y=b$, we can calculate the slope of the tangent to the intersection
+curve $z=f(x,b)$ at $(a,b)$. That is,
+$$
+\left. \frac{d}{dx} f(x,b) \right \|\_{x=a} = \lim_{\delta x \rightarrow 0}
+$$
