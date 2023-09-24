@@ -48,7 +48,7 @@ a horizontal plane $z = c$.
 #### What is the derivative of a single variable function?
 The derivative of $y=f(x)$ at $x=a$ is defined as
 $$
-\frac{d}{dx}f(a) = \lim\_{\delta x \rightarrow 0} \frac{f(a + \delta x) - f(a)}{\delta x}
+\frac{d}{dx}f(a) = \lim\_{\Delta x \rightarrow 0} \frac{f(a + \Delta x) - f(a)}{\Delta x}
 $$
 
 where $f_{x}(a)$ is the slope of the tangent of the curve at $x=a$, and
@@ -62,5 +62,13 @@ For the function $z = f(x,y)$, let $y=b$, where $b \in \mathbb{R}$. Since $z=f(x
 of the surface $z=f(x,y)$ and $y=b$, we can calculate the slope of the tangent to the intersection
 curve $z=f(x,b)$ at $(a,b)$. That is,
 $$
-\left. \frac{d}{dx} f(x,b) \right \|\_{x=a} = \lim_{\delta x \rightarrow 0}
+\left. \frac{d}{dx} f(x,b) \right\|\_{x=a} = \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b){\Delta x}}.
 $$
+
+This limit reflects how $f(x,y)$ changes with $x$ at $(a,b)$, while y is fixed. It is the **partial derivative** of $f$ with respect to $x$ at the point $(a,b)$, denoted:
+
+$$
+\frac{\partial f(a, b)}{\partial x} \equiv \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b){\Delta x}} = \left. \frac{d f(x,b)}{dx} \right\|\_{x=a}.
+$$
+
+### Linearity, product and quotient rules
