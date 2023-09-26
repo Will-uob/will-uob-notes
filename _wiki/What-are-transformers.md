@@ -29,7 +29,8 @@ The Transformer is a model architecture eschewing recurrence and instead relying
 attention mechanism[^2] to draw global dependencies between input and output. This allows for
 significantly more parallelization, and is hence far faster.
 
-
+## [The Illustrated transformer](https://jalammar.github.io/illustrated-transformer/
+)
 
 [^1]: To understand the article it's important to know what a recurrent neural network is. A recurrent
       neural network (RNN) is a type of artificial neural network which uses sequential data or time
