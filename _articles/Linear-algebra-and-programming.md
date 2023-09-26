@@ -41,7 +41,7 @@ of these tables can be found in the Abstract Algebra course.
 
 #### 1.1.3: Vector spaces
 Definition 1.1.4: Suppose that $\mathbb{F}$ is a field. A **vector space** over $\mathbb{F}$ is a set
-$\mathbb{V}$ together with operations addition and scalar multiplication, $+: V \time V \rightarrow V$, and $\cdot : \mathbb{F} \times V \rightarrow V$, satisfying the following axioms:
+$\mathbb{V}$ together with operations addition and scalar multiplication, $+: V \times V \rightarrow V$, and $\cdot : \mathbb{F} \times V \rightarrow V$, satisfying the following axioms:
 
 ![The axioms](/images/vectorspace.png)
 
@@ -61,7 +61,7 @@ Theorem 1.1.6: Suppose that $V$ is a vector space over $\mathbb{F}$. Then:
 #### 1.1.5: Examples of vector spaces
 In the notes they mention the following vector spaces and their properties:
 - Euclidean space
-- Row space: $\mathbb{F}^n = \{(a\_1, a\_2, \dots, a\_n) \| a\_1, a\_2, \dots, a\_n \in \mathbb{F}\}$
+- Row space: $\mathbb{F}^n = \\{(a\_1, a\_2, \dots, a\_n) \| a\_1, a\_2, \dots, a\_n \in \mathbb{F}\\}$
 - Column space: The same as above, except the values are in a column vector, not a row vector.
 - Function vector spaces
 
