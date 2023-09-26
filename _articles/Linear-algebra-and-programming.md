@@ -31,12 +31,12 @@ the only fields of order $q = p^f$.
 ##### Prime order
 
 If the order of the field is $p$, that is $f=1$, then $\mathbb{F}\_p$ is $\mathbb{Z}\_p$, the integers
-modulo[^2] $p$. Hence $\mathbb{F}\_p = \{0, 1, \dots, p-1\}$, and the operations of addition and
+modulo[^2] $p$. Hence $\mathbb{F}\_p = \\{0, 1, \dots, p-1\\}$, and the operations of addition and
 multiplication are modified to ensure that our result are within the interval $[0, p-1]$.
 
 ##### Non-prime order
 The above method does not work in the non-prime case. Instead, giving $\mathbb{F}\_4$ as an example,
-we cannot take $\mathbb{Z}\_4$, as this is not a field. Instead, we take $\mathbb{F}\_4 = \{0, 1, a, b\}.$
+we cannot take $\mathbb{Z}\_4$, as this is not a field. Instead, we take $\mathbb{F}\_4 = \\{0, 1, a, b\\}.$
 
 We can then construct tables to define the rules for the operations. Information about the construction
 of these tables can be found in the Abstract Algebra course.
@@ -63,10 +63,10 @@ Theorem 1.1.6: Suppose that $V$ is a vector space over $\mathbb{F}$. Then:
 #### 1.1.5: Examples of vector spaces
 In the notes they mention the following vector spaces and their properties:
 - Euclidean space
-- Row space: $\mathbb{F}^n = \\{(a\_1, a\_2, \dots, a\_n) \| a\_1, a\_2, \dots, a\_n \in \mathbb{F}\\}$
+- Row space: $\mathbb{F}^n = \\{(a\_1, a\_2, \dots, a\_n) \space \| \space a\_1, a\_2, \dots, a\_n \in \mathbb{F}\\}$
 - Column space: The same as above, except the values are in a column vector, not a row vector.
-- Functional spaces in analysis: For example, $C[a,b] = \\{\text{all continous functions on the interval} [a,b] \in \mathbb{R}\\}.
-- Spaces of polynomials: For example, $p^n = \\{a\_n x^n + \dots + a\_1 x + a\_0 \| a\_0, a\_1, a\_2, \dots, a\_n \in \mathbb{R}\\}
+- Functional spaces in analysis: For example, $C[a,b] = \\{\text{all continous functions on the interval} [a,b] \in \mathbb{R}\\}$.
+- Spaces of polynomials: For example, $p^n = \\{a\_n x^n + \dots + a\_1 x + a\_0 \| a\_0, a\_1, a\_2, \dots, a\_n \in \mathbb{R}\\}$.
 
 ### 1.2: What are subspaces, intersections and sum of subspaces?
 #### 1.2.1: Subspaces
@@ -100,7 +100,7 @@ $au + v \in U$.
 There are two operations, intersection and sum, that start from known sub-spaces and produce new ones.
 The intersection is defined as follows:
 
-Theorem 1.2.11 (Intersection of subspaces) If $\{U\_i \| i \in I\}$ is a collection of subspaces of a
+Theorem 1.2.11 (Intersection of subspaces) If $\\{U\_i \| i \in I\\}$ is a collection of subspaces of a
 vector space $V$, then the intersection $W := \cap\_{i \in I}U_i $ is again a subspace of $V$.
 
 #### 1.2.4: The Span
@@ -124,13 +124,13 @@ For instance, if $X = A \cup B \cup C$, we can write this as $\<A, B, C\>$
 
 #### 1.2.5: Sum of subspaces, direct sum
 Definition 1.2.16 (Sum of subspaces): Suppose that $U$ and $W$ are two sub-spaces of a vector space V.
-Then we define $U+W = \{u+w \| u \in U, w \in W\}.
+Then we define $U+W = \\{u+w \| u \in U, w \in W\\}$.
 
 Theorem 1.2.17: If $U$ and $W$ are subspaces of a vector space $V$, then $U+W$ is also a subspace of
 $V$.[^4]
 
 Theorem 1.2.18: If $U$ and $W$ are subspaces of $V$, then $U+W = \<U, W\>$. More generally, if
-$U\_1, \dots, U\_k$ are subspaces of $V$, then $U\_1 + \dots U\_k = \<U\_1, \dots, U\_k\>.
+$U\_1, \dots, U\_k$ are subspaces of $V$, then $U\_1 + \dots U\_k = \<U\_1, \dots, U\_k\>$.
 
 If we have $U$ and $W$ as subspaces of $V$, and let $D=U+W$, then generally every vector $d \in D$ can
 be written as $d=u+w, u \in U, w \in W$, in more than one way. This leads us to the concept of direct
@@ -246,7 +246,7 @@ In particualar, if $V$ is finite-dimensional, so is $U$, and if both the last ca
 
 #### 1.4.4: Dimension of the sum of subspaces
 Theorem 1.4.16 (Dimension of sum): Suppose $V$ is a vector space and suppose $U$ and $W$ are
-finite-dimensional subspaces of $V$. Then $\dim(U+W) = \dim U + \dim W - \dim(U \cap W).[^15]
+finite-dimensional subspaces of $V$. Then $\dim(U+W) = \dim U + \dim W - \dim(U \cap W)$.[^15]
 
 Theorem 1.4.19: Suppose $U$ and $W$ are finite-dimensional subspaces of a vector space $V$. Let
 $S = U + W$. Then, $S = U \oplus W$ if and only if $\dim S = \dim U + \dim W$.
