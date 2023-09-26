@@ -10,6 +10,8 @@ Linear algebra is the study of multi-dimensional space.
 ## 1. What are vector spaces?
 ### 1.1 What are fields and vector spaces?
 ####  1.1.1 Fields
+Fields, for our purposes, are sets that contain our scalars. More formally:
+
 Defintion 1.1.1: A field, whose elements may be referred to as numbers, is a set $\mathbb{F}$ on which we have binary operations addition and multiplication, $+ : \mathbb{F} \times \mathbb{F} \rightarrow \mathbb{F}$ and $\cdot : \mathbb{F} \times \mathbb{F} \rightarrow \mathbb{F}$, satisfying the following axioms:
 
 ![The axioms of a field](https://i.stack.imgur.com/DLUQp.png)
@@ -63,7 +65,8 @@ In the notes they mention the following vector spaces and their properties:
 - Euclidean space
 - Row space: $\mathbb{F}^n = \\{(a\_1, a\_2, \dots, a\_n) \| a\_1, a\_2, \dots, a\_n \in \mathbb{F}\\}$
 - Column space: The same as above, except the values are in a column vector, not a row vector.
-- Function vector spaces
+- Functional spaces in analysis: For example, $C[a,b] = \\{\text{all continous functions on the interval} [a,b] \in \mathbb{R}\\}.
+- Spaces of polynomials: For example, $p^n = \\{a\_n x^n + \dots + a\_1 x + a\_0 \| a\_0, a\_1, a\_2, \dots, a\_n \in \mathbb{R}\\}
 
 ### 1.2: What are subspaces, intersections and sum of subspaces?
 #### 1.2.1: Subspaces
@@ -101,6 +104,10 @@ Theorem 1.2.11 (Intersection of subspaces) If $\{U\_i \| i \in I\}$ is a collect
 vector space $V$, then the intersection $W := \cap\_{i \in I}U_i $ is again a subspace of $V$.
 
 #### 1.2.4: The Span
+Informally, the span of a set of vectors can be regarded as the set of all vectors that can be represented
+by the linear combination of those vectors. If a set of vectors spans the entire $n^{\text{th}}$-dimensional plane
+it is defined in, then we say that those vectors for a basis for that space.
+
 The following theorem derives from the previous result:
 
 Theorem 1.2.12 (Minimal subspace) Suppose $V$ is a vector space and $X \subseteq V$ is an arbitrary
@@ -148,7 +155,7 @@ $(U\_1 + \dots + U\_{i-1}) \cup U\_i = 0$ for $i = 2,3,\dots,k$.
 #### 1.3.1 Vectors in the span
 Suppose that $V$ is a vector space over a field $\mathbb{F}$, and let $X \subseteq V$.
 
-Definition 1.3.1 (Linear combination): An expression of the form
+Definition 1.3.1 (Linear combination)[^6]: An expression of the form
 $$
 \sum\_{x \in X} a\_x x
 $$
@@ -265,7 +272,12 @@ $X \cap Y = \emptyset$ and $X \cup Y$ is linearly independent.
 
 [^5]: Breakdown of the proof:
 
-[^6]: Breakdown of the proof:
+[^6]: The defintion in the lecture was as follows: Suppose $V$ is a vector space over a field \mathbb{F}. Given $u\_1, u\_2, \dots, u\_k \in V$,
+      a linear combination of these vectors is
+      $$
+      a\_1u\_1 + a\_2u\_2 + \dots + a\_ku\_k = w
+      $$
+      for $a\_1, a\_2, \dots, a\_k \in \mathbb{F}$.
 
 [^7]: Breakdown of the proof:
 
@@ -284,3 +296,5 @@ $X \cap Y = \emptyset$ and $X \cup Y$ is linearly independent.
 [^14]: Breakdown of the proof:
 
 [^15]: Breakdown of the proof:
+
+[^16]: Breakdown of the proof:
