@@ -97,7 +97,7 @@ using $\partial$ instead of $d$.
 Theorem. If partial derivatives concerned are continuous, the mixed derivatives commute to the order
 of variables.[^5]
 
-#### Differential functions
+### Differential functions
 
 [^1]: Question: Are all the functions we deal with in this course bijective functions? I'm assuming so, since he said in lecture a function maps one element in codomain to exactly one in the
       codomain. Did he say for every element in the domain?
