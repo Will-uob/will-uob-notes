@@ -75,7 +75,29 @@ $$
 \frac{\partial f(a, b)}{\partial x} \equiv \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b){\Delta x}} = \left. \frac{d f(x,b)}{dx} \right\|\_{x=a}.
 $$
 
-### Linearity, product and quotient rules
+#### Linearity, product and quotient rules
+The rules for a partial derivative of a linear combination of functions, the partial dervivative of
+the product of functions, and the partial derivative of the quotient of two functions $u=u(x,y)$
+and $v=v(x,y)$ are the same for those in normal differentiation[^4].
+
+#### What about a 3-variable function?
+
+A function $f(x,y,z)$ is said to have a partial derivative to $y$ at the point $(x\_0, y\_0, z\_0)$
+if the following limit exists:
+$$
+\frac{\partial f(x\_0, y\_0, z\_0)}{\partial y} \equiv \lim\_{\Delta y \rightarrow 0} \frac{f(x\_0, y\_0 + \Delta y, z\_0) - f(x\_0, y\_0, z\_0)}{\Delta y}.
+$$
+
+When calculating $f\_y$, $x$ and $z$ are treated as constants.
+
+#### Higher order partial derivatives
+These work exactly the same as in single-variable differentation, with the same notation, except
+using $\partial$ instead of $d$.
+
+Theorem. If partial derivatives concerned are continuous, the mixed derivatives commute to the order
+of variables.[^5]
+
+#### Differential functions
 
 [^1]: Question: Are all the functions we deal with in this course bijective functions? I'm assuming so, since he said in lecture a function maps one element in codomain to exactly one in the
       codomain. Did he say for every element in the domain?
@@ -86,3 +108,6 @@ $$
 [^3]: From this section, please make notes on ellipses, parabola, hyperbola. I have a hunch it's going to come up a lot. Also, what is a contour? What is a contour integral? Christ, I've
       forgotten a lot. XD
 
+[^4]: Be sure to know how to prove these results in both a single variable and multi-variable context.
+
+[^5]: What?
