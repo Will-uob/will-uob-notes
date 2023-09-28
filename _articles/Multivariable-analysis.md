@@ -97,7 +97,153 @@ using $\partial$ instead of $d$.
 Theorem. If partial derivatives concerned are continuous, the mixed derivatives commute to the order
 of variables.[^5]
 
-### Differential functions
+### Differentiable functions
+#### Little-o
+If
+$$
+\lim\_{x \rightarrow c} \frac{f(x)}{g(x)} = 0
+$$
+we say "$f$ is little-oh of $g$ as $x$ approaches $c$", and we write:
+$$
+f(x) = o(g(x)) \space \text{ as } \space x \rightarrow c.
+$$
+
+The little-o notation indicates tat the decay rate of a certain function is faster than that
+of another.
+
+
+#### Differentiable functions of a single variable
+A function $y = f(x)$ is differentiable at $x\_0$ if
+$$
+y - y\_0 = f\_x (x\_0) (x-x\_0) + o(x-x\_0),
+$$
+or
+$$
+\Delta y = f\_x (x\_0) \Delta x + o(\Delta x),
+$$
+where $y\_0 = f(x\_0)$, $\Delta x = x - x\_0$, $\Delta y = y - y\_0$.
+
+As $x$ is near $x\_0$, $\| \Delta x \| << 1$: and so equation (1) becomes:
+
+$$
+\Delta y \approx f\_x (x\_0) \Delta x.
+$$
+
+In words, the change of the function in its neighbourhood is approximately linear to the changes
+of the variable, with the coefficient being the derivative.
+
+#### Geometric interpretation of differentiable functions
+When a curve is differentiable at $x\_0$, the curve near $x\_0$ can be approximated by its
+tangent line at $x\_0$.
+
+![Put image here]()
+
+#### Differentiable functions of two variables
+A function $f(x,y)$ is called differentiable at $(x\_0, y\_0)$ if $\Delta f = f(x,y) - f(x\_0, y\_0)$
+satisfies:
+$$
+\Delta f = f\_x(x\_0, y\_0) \Delta x + f\_y (x\_0, y\_0) \Delta y + o(\rho),
+$$
+
+where $\Delta x = x - x\_0$, $\Delta y = y - y\_0$, and $\rho = \sqrt{(\Delta x)^2 + (\Delta y)^2}.
+
+As $(x,y)$ is near $(x\_0, y\_0)$, or $(x,y)$ is in the neighbourhood of $(x\_0, y\_0)$:
+
+$$
+o(\rho) << \rho << 1,
+$$
+
+and so $\Delta f \approx f\_x (x\_0, y\_0) \Delta x + f\_y (x\_0, y\_0) \Delta y.
+
+Near a differentiable point, the change of a function is approximately linear to the changes of
+variables, with the coefficients being the corresponding partial derivatives. As $\rho$ is infinitively
+small, we have
+
+$$
+df (x,y) = f\_x (x,y) dx + f\_y (x,y) dy.
+$$
+
+#### Geometrical interpretation of differentiable functions
+When a surface is differentiable at $(x\_0, y\_0)$, the surface near $(x\_0, y\_0)$ can be approximated
+by its tangent plane at $(x\_0, y\_0)$.
+
+#### Being differentiable and having derivatives
+For single variable functions, being differentiable is equivalent to having a derivative, i.e.
+$$
+f \in D \iff \exists f\_x.
+$$
+
+For multi-variable functions, a differentiable function has all partial derivatives
+$$
+f(x,y) \in D \implies \exists f\_x, f\_y.
+$$
+
+But, the existance of all partial derivatives does not guarantee the function being differentiable.
+
+### The chain rule
+A function is said to be sufficiently smooth if the function and as many of it's derivatives as
+required are continuous where they need to be.
+
+#### The chain rule for functions of single variable
+Suppose $y=y(x), x = x(u)$. Letting $y = Y(u)$, we have
+$$
+\frac{dY}{du} = \frac{dy}{dx}{dx}{du},
+$$
+which is conventionally written:
+$$
+\frac{dy}{du} = \frac{dy}{dx}{dx}{du}.
+$$
+
+We can derive the chain rule in the following way:
+
+Suppose that $y = y(x)$ and $x = x(u)$ are differentiable:
+$$
+dy = y\_x dx, \\\
+dx = x\_u du, \\\
+\text{therefore } \space dy = y\_x x\_u du}.
+$$
+
+We can rewrite this in terms of $Y(u)$, giving us:
+
+$$
+dy = Y\_u dy.
+$$
+
+From these two equation, we know that
+
+$$
+Y\_u du = y\_x x\_u du, \text{ or } \\\
+
+Y\_u = y\_x x\_u.
+$$
+
+#### The chain rule for functions of two variables
+Suppose $f = f(x,y)$ and $x = x(u, v), y = y(u, v)$ and all are differentiable.
+
+As $f(x,y)$ is differentiable, we must have that $df = f\_x dx + f\_y dy$.
+
+As $x = x(u,v)$ and $y = y(u,v)$ are differentiable, we must have that
+$$
+dx = x\_u du + x\_v dv, \space dy = y\_u du + y\_v dv.
+$$
+
+When we combine these equations, we get
+$$
+\space df = f\_x (x\_u du + x\_v dv) + f\_y (y\_u du + y\_v dv) \\\
+= (f\_x x\_u du + f\_y y\_u du) + (f\_x x\_v dv + f\_y y\_v dv) \\\
+= (f\_x x\_u + f\_y y\_u) du + (f\_x x\_v + f\_y y\_v)dv.
+$$
+
+Since $f = f(x(u,v), y(u,v)) = f(u,v) \implies df = f\_u du + f\_v dv.$$
+
+Given that $du \text{and} dv$ are arbitray and infinitessimally small, by setting
+$du, dv = (\neq 0, 0)$, $du, dv = (0, \neq 0)$, we obtain the Chain Rule
+$$
+f\_u = f\_x x\_u + f\_y y\_u, f\_v = f\_x x\_v + f\_y y\_v.
+$$
+
+
+
 
 [^1]: Question: Are all the functions we deal with in this course bijective functions? I'm assuming so, since he said in lecture a function maps one element in codomain to exactly one in the
       codomain. Did he say for every element in the domain?
