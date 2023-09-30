@@ -82,7 +82,7 @@ For the function $z = f(x,y)$, let $y=b$, where $b \in \mathbb{R}$. Since $z=f(x
 of the surface $z=f(x,y)$ and $y=b$, we can calculate the slope of the tangent to the intersection
 curve $z=f(x,b)$ at $(a,b)$. That is,
 $$
-\left. \frac{d}{dx} f(x,b) \right\|\_{x=a} = \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b)}{\Delta x}}.
+\left. \frac{d}{dx} f(x,b) \right\|\_{x=a} = \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b)}{\Delta x}.
 $$
 
 This limit reflects how $f(x,y)$ changes with $x$ at $(a,b)$, while y is fixed. It is the **partial derivative** of $f$ with respect to $x$ at the point $(a,b)$, denoted:
