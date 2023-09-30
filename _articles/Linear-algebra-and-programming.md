@@ -71,10 +71,10 @@ In the notes they mention the following vector spaces and their properties:
 ### 1.2: What are subspaces, intersections and sum of subspaces?
 #### 1.2.1: Subspaces
 Defintion 1.2.1: Suppose $V$ is a vector space over $\mathbb{F}$. A subset $U \subseteq V$ is a
-[subspace](https://textbooks.math.gatech.edu/ila/subspaces.html) if it is a vector space over $\mathbb{F}$ in its own right, with respect to addition and multiplication inherited from $V$.
+[subspace](https://textbooks.math.gatech.edu/ila/subspaces.html) if it is a vector space over $\mathbb{F}$ in its own right, with respect to addition and multiplication inherited from $V$.[^1]
 
 She then goes over some examples of subspaces, such as:
-1. $U=V$[^3],
+1. $U=V$,
 2. $\{0\}$, the trivial subspace, denoted $0$,
 3. The subspaces of $\mathbb{R}^2$ and $\mathbb{R}^3$,
 4. Polynomial subspaces.
@@ -94,7 +94,7 @@ and only if $U$ is closed for addition and multiplication with scalars.
 This can be replaced by a single theorem:
 Theorem 1.2.8 (Subspace criterion II): A non-empty subset $U$ of a vector space $V$ over $\mathbb{F}$ is
 a subspace of $V$ if and only if, $\forall u, v \in U$ and all $a \in \mathbb{F}$, we have that
-$au + v \in U$.
+$au + v \in U$.[^2]
 
 #### 1.2.3: Intersection of subspaces
 There are two operations, intersection and sum, that start from known sub-spaces and produce new ones.
@@ -127,7 +127,7 @@ Definition 1.2.16 (Sum of subspaces): Suppose that $U$ and $W$ are two sub-space
 Then we define $U+W = \\{u+w \| u \in U, w \in W\\}$.
 
 Theorem 1.2.17: If $U$ and $W$ are subspaces of a vector space $V$, then $U+W$ is also a subspace of
-$V$.[^4]
+$V$.
 
 Theorem 1.2.18: If $U$ and $W$ are subspaces of $V$, then $U+W = \<U, W\>$. More generally, if
 $U\_1, \dots, U\_k$ are subspaces of $V$, then $U\_1 + \dots U\_k = \<U\_1, \dots, U\_k\>$.
@@ -141,7 +141,7 @@ the direct sum of $U$ and $W$, $D = U \oplus W$, if for every $d \in D$, there e
 of $u \in U$ and $w \in W$ such that $d = u + w$.
 
 Theorem 1.2.20 (Direct sum criterion): For subspace $U$ and $W$ of a vector space $V$, we have that
-$D = U + W$ is the direct sum of $U$ and $W$ iff $U \cup W = 0$.[^5]
+$D = U + W$ is the direct sum of $U$ and $W$ iff $U \cup W = 0$.
 
 Definition 1.2.21 (Direct sum, II): Suppose $U\_1, \dots, U\_k$ are subspaces of a vector space $V$.
 We say that $D = U\_1 + \dots + U\_k$ is the direct sum of $U\_1, \dots, U\_k$ if every $d \in D$ can
@@ -177,7 +177,7 @@ Theorem 1.3.5 (The span): Suppose $V$ is a vector space over $\mathbb{F}$ and su
 Then $\<X\>$ consists of all vectors that are linear combinations of $X$. That is,
 $$
 \<X\> = \{\sum\_{x \in X} a\_x x \| a\_x \in \mathbb{F} \forall x \in X\}.
-$$[^6]
+$$
 
 #### 1.3.2 Independent sets
 Are there better and worse generating sets or are all generating sets roughly the same?
@@ -190,7 +190,7 @@ on $X$.
 Theorem 1.3.10 (Unique coefficients): Suppose that $X$ is a set of vectors in a vector space $V$
 over $\mathbb{F}$. Let $U = \<X\>$ and $u \in U$. Then, for $u$, there exists a unique choice of
 coefficients $a\_x \in \mathbb{F}$ such that $u = \sum\_{x \in X} a\_x x$ if and only if $X$ is
-independent.[^7]
+independent.
 
 #### 1.3.3: Up and down
 Can we find independent generating sets? Yes, all we need is to remove unnecessary vectors from a known
@@ -203,14 +203,14 @@ $$
 $$
 
 where not all $a\_x$ are zero. Let $x \in X$ be such that $a\_x \neq 0$. Then $X' = X \\ \{x\}$ spans
-the same subspace $U = \<X\>$.[^8]
+the same subspace $U = \<X\>$.
 
 Just like we can remove unncecessary vectors from generating sets, we can sometimes add new vectors
 to independent sets:
 
 Theorem 1.3.14 (Adding a vector): Suppose $X$ is a linearly independent set in a vector space $V$ and
 $u \in V$. If $u$ is not a linear combination of the vectors from $X$, then $X' = X \cup \{x\}$ is
-linearly independent.[^9]
+linearly independent.
 
 ### 1.4: Bases
 #### 1.4.1: Bases
@@ -219,10 +219,10 @@ Defintion 1.4.1 (Basis): A basis in $V$ is a linearly independent generating set
 Theorem 1.4.2 (Existence of bases): Every vector space has a basis
 
 ##### How to prove the above theorem
-Proposition 1.4.3 (Down to a basis): Every generating set $X$ in a vector space $V$ contains a basis.[^10]
+Proposition 1.4.3 (Down to a basis): Every generating set $X$ in a vector space $V$ contains a basis.
 
 Proposition 1.4.4 (Up to a basis): Every linearly independent set $X$ in a vector space $V$ is contained
-in a basis.[^11]
+in a basis.
 
 #### 1.4.2: Standard bases
 This part is skipped over for now, though contains many nice examples of how to prove a basis.
@@ -232,9 +232,9 @@ Definition 1.4.9 (Finite-dimensional spaces): A vector space is called finite-di
 a finite generating (spanning) set of vectors. Otherwise, we call the vector space infinite dimensional.
 
 Proposition 1.4.10: Suppose that $V$ is a vector space, $X$ an independent set of vectors in $V$, and
-$Y$ is a generating set of vectors, that is, $\<Y\> = V$. Then, $\| X \| \leq \| Y \|$.[^12]
+$Y$ is a generating set of vectors, that is, $\<Y\> = V$. Then, $\| X \| \leq \| Y \|$.
 
-Theorem 1.4.11 (Basis size): Any two bases in a vector space have the same size.[^13]
+Theorem 1.4.11 (Basis size): Any two bases in a vector space have the same size.
 
 Definition 1.4.12 (Dimension): The dimension of a vector space $V$ is the size of an arbitrary basis of
 $V$, and is denoted $\text{dim} V$.
@@ -242,11 +242,11 @@ $V$, and is denoted $\text{dim} V$.
 For an infinite-dimensional vector space $V$, we just write $\dim V = \infty$.
 
 Theorem 1.4.14: Suppose $V$ is a vector space and $U \leq V$ is a subspace. Then, $\dim U \leq \dim V$.
-In particualar, if $V$ is finite-dimensional, so is $U$, and if both the last case, and $\dim U = \dim V$ are true, then $U = V$.[^14]
+In particualar, if $V$ is finite-dimensional, so is $U$, and if both the last case, and $\dim U = \dim V$ are true, then $U = V$.
 
 #### 1.4.4: Dimension of the sum of subspaces
 Theorem 1.4.16 (Dimension of sum): Suppose $V$ is a vector space and suppose $U$ and $W$ are
-finite-dimensional subspaces of $V$. Then $\dim(U+W) = \dim U + \dim W - \dim(U \cap W)$.[^15]
+finite-dimensional subspaces of $V$. Then $\dim(U+W) = \dim U + \dim W - \dim(U \cap W)$.
 
 Theorem 1.4.19: Suppose $U$ and $W$ are finite-dimensional subspaces of a vector space $V$. Let
 $S = U + W$. Then, $S = U \oplus W$ if and only if $\dim S = \dim U + \dim W$.
@@ -260,41 +260,11 @@ $X \cap Y = \emptyset$ and $X \cup Y$ is linearly independent.
 ### 1.5: Coordinates
 #### 1.5.1: Coordinates
 
-[^1]: What does order mean in this context?
 
-[^2]: What was the definition (mathematically) of modulo again?
+[^1]: Alternative definition: A subset $U$ of $V$ is a subspace if it's a vector space with respect to
+      the operations from $V$.
 
-[^3]: Note that we say a subspace $U \subseteq V$ is **proper** if $U \neq V$. Hence,
-      $U =V$ is the only subspace of $V$ that is not proper.
-
-[^4]: Proof is left as an exercise to the reader. Furthermore, this result can be generalised into
-      Theorem 1.2.18
-
-[^5]: Breakdown of the proof:
-
-[^6]: The defintion in the lecture was as follows: Suppose $V$ is a vector space over a field \mathbb{F}. Given $u\_1, u\_2, \dots, u\_k \in V$,
-      a linear combination of these vectors is
-      $$
-      a\_1u\_1 + a\_2u\_2 + \dots + a\_ku\_k = w
-      $$
-      for $a\_1, a\_2, \dots, a\_k \in \mathbb{F}$.
-
-[^7]: Breakdown of the proof:
-
-[^8]: Breakdown of the proof:
-
-[^9]: Breakdown of the proof:
-
-[^10]: Breakdown of the proof:
-
-[^11]: Breakdown of the proof:
-
-[^12]: Breakdown of the proof:
-
-[^13]: Breakdown of the proof:
-
-[^14]: Breakdown of the proof:
-
-[^15]: Breakdown of the proof:
-
-[^16]: Breakdown of the proof:
+[^2]: An alternative definition: $U \subseteq V$ is a subspace if and only if
+      1. $U \neq \varnothing$,
+      2. $U$ is closed for vector addition,
+      3. $U$ is closed for scalar multiplication.
