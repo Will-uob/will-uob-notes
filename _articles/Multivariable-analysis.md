@@ -24,6 +24,12 @@ $$ [^1]
 
 which can be shortened to $f: \mathbb{R}^n \rightarrow \mathbb{R}$.
 
+#### Example question
+Determine the domain $D$ of the function
+$$
+f = \ln (4-x^2-y^2) + \sqrt{x^2 + 2x + y^2}.
+$$
+
 ### What is the graph of a multivariable function?
 We take the example of a real function of two variables first, $z = f(x,y)$, which is defined as:
 $$
@@ -33,6 +39,10 @@ $$ [^2]
 #### Notation
 If we want to draw a plane in the XY, XZ and YZ axis respectively, we can denote this as the functions $z=z\_0$, $y=y\_0$ and $x=x\_0$. However, it's common to simply use the notation
 $x=x$, $y=y$ and $z=z$ instead.
+
+#### Example questions
+- Sketch a graph for the function, $\ = 1-x-y$.
+- Sketch graphs for the functions: $x=x\_0, y=y\_0, z=z\_0$.
 
 ### What are vertical sections and level curves?
 For a function, $z = f(x,y)$, the **vertical sections** are when we fix the value of either the
@@ -47,6 +57,12 @@ More specifically, the function $c = f(x,y)$, is the intersection of $z = f(x,y)
 a horizontal plane $z = c$.
 
 The overall term for vertical sections and level curves seems to be a **cross-section**[^3].
+
+#### Example questions
+- Plot the vertical sections and level curves for $z = x^2 + y^2$,
+- Sketch a graph in the real space for the function $z=x^2$,
+- Sketch the graph for the function $y=x^2$ in the real space,
+- Sketch a graph for the function $z = \sqrt{x^2 + y^2}$.
 
 ### What are partial derivatives?
 #### What is the derivative of a single variable function?
@@ -107,6 +123,12 @@ $$
 
 Theorem. If partial derivatives concerned are continuous, the mixed derivatives commute to the order
 of variables. [^5]
+
+#### Example questions
+- Calculate $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ for $f = y^2 + x^2 y$,
+- Calculate $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ for $f = x^y$,
+- Calculate $f\_x, f\_y$ and $f\_z$ for $f = x\sin(y) + yz$,
+- Calcualte $f\_xy$ and $f\_yx$ for $f=ye^x + x\sin y$,
 
 ### Differentiable functions
 #### Little-o
@@ -290,7 +312,9 @@ $$
 The summarization runs over all the intermediate variables.
 
 #### Example questions
-
+- If $f = e^x \sin y, x = uv^2 \text{ and } y=uv$, find $\frac{\partial f}{\partial u}$ at $(u,v) = (1,\pi)$,
+- Assume $w = e^x yz$, $x = ts, y = s^2, z=t-s$. Find $w\_t$,
+- Calculate $\frac{\partial^2 f}{\partial y}{\partial x}$ for $f=\sin (x \sin y)$,
 
 ### Implicit partial differentiation
 Please note that we can also use implicit partial differentiation to solve certain problems.
@@ -301,7 +325,8 @@ $$
 yz = \ln z = x+y.
 $$
 
-
+#### Example questions
+- For the partial differential equation: $x \frac{\partial u}{\partial x} - y \frac{\partial u}{\partial y} = 2x^2$ change the variables $(x,y)$ to $s = xy$, $t = \frac{x}{y}$.
 
 [^1]: Question: Are all the functions we deal with in this course bijective functions? I'm assuming so, since he said in lecture a function maps one element in codomain to exactly one in the
       codomain. Did he say for every element in the domain?
