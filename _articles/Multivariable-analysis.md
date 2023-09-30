@@ -280,9 +280,7 @@ $$
 We start we an example:
 $$
 \text{For } \space f = f(x,y), x = x(u,v), y=y(u,v), \\\\
-
 \frac{\partial f(x,y)}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial f}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \\\\
-
 \frac{\partial f(x,y)}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v} \\\\
 $$
 
