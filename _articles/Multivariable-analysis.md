@@ -19,16 +19,16 @@ A function of single variable: $f: D \subseteq \mathbb{R} \space \rightarrow \sp
 A function $f$ of $n$ variables, for $n \subseteq \mathbb{N}$, is denoted:
 
 $$
-f: D \subseteq \mathbb{R}^n \rightarrow C \subseteq \mathbb{R}.[^1]
-$$
+f: D \subseteq \mathbb{R}^n \rightarrow C \subseteq \mathbb{R}.
+$$ [^1]
 
 which can be shortened to $f: \mathbb{R}^n \rightarrow \mathbb{R}$.
 
 ### What is the graph of a multivariable function?
 We take the example of a real function of two variables first, $z = f(x,y)$, which is defined as:
 $$
-z = f(x,y), (x,y) \in D \subseteq \mathbb{R}^2, z \in C \subseteq \mathbb{R}.[^2]
-$$
+z = f(x,y), (x,y) \in D \subseteq \mathbb{R}^2, z \in C \subseteq \mathbb{R}.
+$$ [^2]
 
 #### Notation
 If we want to draw a plane in the XY, XZ and YZ axis respectively, we can denote this as the functions $z=z\_0$, $y=y\_0$ and $x=x\_0$. However, it's common to simply use the notation
@@ -66,19 +66,19 @@ For the function $z = f(x,y)$, let $y=b$, where $b \in \mathbb{R}$. Since $z=f(x
 of the surface $z=f(x,y)$ and $y=b$, we can calculate the slope of the tangent to the intersection
 curve $z=f(x,b)$ at $(a,b)$. That is,
 $$
-\left. \frac{d}{dx} f(x,b) \right\|\_{x=a} = \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b){\Delta x}}.
+\left. \frac{d}{dx} f(x,b) \right\|\_{x=a} = \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b)}{\Delta x}}.
 $$
 
 This limit reflects how $f(x,y)$ changes with $x$ at $(a,b)$, while y is fixed. It is the **partial derivative** of $f$ with respect to $x$ at the point $(a,b)$, denoted:
 
 $$
-\frac{\partial f(a, b)}{\partial x} \equiv \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b){\Delta x}} = \left. \frac{d f(x,b)}{dx} \right\|\_{x=a}.
+\frac{\partial f(a, b)}{\partial x} \equiv \lim\_{\Delta x \rightarrow 0} \frac{f(a+\Delta x, b) - f(a,b)}{\Delta x} = \left. \frac{d f(x,b)}{dx} \right\|\_{x=a}.
 $$
 
 #### Linearity, product and quotient rules
 The rules for a partial derivative of a linear combination of functions, the partial dervivative of
 the product of functions, and the partial derivative of the quotient of two functions $u=u(x,y)$
-and $v=v(x,y)$ are the same for those in normal differentiation[^4].
+and $v=v(x,y)$ are the same for those in normal differentiation. [^4]
 
 #### What about a 3-variable function?
 
@@ -94,8 +94,19 @@ When calculating $f\_y$, $x$ and $z$ are treated as constants.
 These work exactly the same as in single-variable differentation, with the same notation, except
 using $\partial$ instead of $d$.
 
+Examples of this notation are:
+$$
+\frac{\partial}{\partial x} (\frac{\partial f}{\partial x}) \equiv \frac{\partial^2 f}{\partial x^2} \equiv f\_{xx},
+$$
+
+and
+
+$$
+\frac{\partial}{\partial x} (\frac{\partial f}{\partial y}) \equiv \frac{\partial^2 f}{\partial x \partial y} \equiv f\_{yx}
+$$
+
 Theorem. If partial derivatives concerned are continuous, the mixed derivatives commute to the order
-of variables.[^5]
+of variables. [^5]
 
 ### Differentiable functions
 #### Little-o
@@ -117,7 +128,9 @@ A function $y = f(x)$ is differentiable at $x\_0$ if
 $$
 y - y\_0 = f\_x (x\_0) (x-x\_0) + o(x-x\_0),
 $$
+
 or
+
 $$
 \Delta y = f\_x (x\_0) \Delta x + o(\Delta x),
 $$
@@ -153,7 +166,7 @@ $$
 o(\rho) << \rho << 1,
 $$
 
-and so $\Delta f \approx f\_x (x\_0, y\_0) \Delta x + f\_y (x\_0, y\_0) \Delta y.
+and so $\Delta f \approx f\_x (x\_0, y\_0) \Delta x + f\_y (x\_0, y\_0) \Delta y$$.
 
 Near a differentiable point, the change of a function is approximately linear to the changes of
 variables, with the coefficients being the corresponding partial derivatives. As $\rho$ is infinitively
@@ -198,9 +211,9 @@ We can derive the chain rule in the following way:
 
 Suppose that $y = y(x)$ and $x = x(u)$ are differentiable:
 $$
-dy = y\_x dx, \\\
-dx = x\_u du, \\\
-\text{therefore } \space dy = y\_x x\_u du}.
+dy = y\_x dx, \\\\
+dx = x\_u du, \\\\
+\text{therefore} \space dy = y\_x x\_u du.
 $$
 
 We can rewrite this in terms of $Y(u)$, giving us:
@@ -212,8 +225,7 @@ $$
 From these two equation, we know that
 
 $$
-Y\_u du = y\_x x\_u du, \text{ or } \\\
-
+Y\_u du = y\_x x\_u du, \text{ or } \\\\
 Y\_u = y\_x x\_u.
 $$
 
@@ -229,8 +241,8 @@ $$
 
 When we combine these equations, we get
 $$
-\space df = f\_x (x\_u du + x\_v dv) + f\_y (y\_u du + y\_v dv) \\\
-= (f\_x x\_u du + f\_y y\_u du) + (f\_x x\_v dv + f\_y y\_v dv) \\\
+\space df = f\_x (x\_u du + x\_v dv) + f\_y (y\_u du + y\_v dv) \\\\
+= (f\_x x\_u du + f\_y y\_u du) + (f\_x x\_v dv + f\_y y\_v dv) \\\\
 = (f\_x x\_u + f\_y y\_u) du + (f\_x x\_v + f\_y y\_v)dv.
 $$
 
@@ -242,6 +254,52 @@ $$
 f\_u = f\_x x\_u + f\_y y\_u, f\_v = f\_x x\_v + f\_y y\_v.
 $$
 
+#### How can we remember the chain rule?
+We start we an example:
+$$
+\text{For } \space f = f(x,y), x = x(u,v), y=y(u,v), \\\\
+
+\frac{\partial f(x,y)}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial f}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \\\\
+
+\frac{\partial f(x,y)}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v} \\\\
+$$
+
+In Step 1, we put the function and the target variables in correct positions. For two intermediate
+variables, we will have two terms.
+
+In Step 2, we add an intermediate variable for each term.
+
+#### Chain rule for functions of multi-variables
+In a general case, we have the following chain rule:
+
+Let $f$ be a function of the variables $x\_1, \dots, x\_n$,
+$$
+f = f(x\_1, x\_2, \dots, x\_n),
+$$
+where each $x\_j$ is a function of the variables $t\_1, t\_2, \dots, t\_m$,
+$$
+x\_j = x\_j(t\_1, t\_2, \dots, t\_m), j=1,2,\dots,n.
+$$
+
+If $f$ and $x\_j$ are sufficiently smooth, then
+$$
+\frac{\partial f}{\partial t\_i} = \frac{\partial f}{\partial x\_1} \frac{x\_1}{\partial t\_i} + \dots +
+\frac{\partial f}{\partial x\_n} \frac{\partial x\_n}{\partial t\_i}, \text{where } i=1,2,\dots,m.
+$$
+
+The summarization runs over all the intermediate variables.
+
+#### Example questions
+
+
+### Implicit partial differentiation
+Please note that we can also use implicit partial differentiation to solve certain problems.
+For example, how would you solve the following problem?
+
+Find $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$, where $z(x,y)$ is defined by
+$$
+yz = \ln z = x+y.
+$$
 
 
 

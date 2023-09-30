@@ -125,74 +125,34 @@ As can be seen below, the model first downsamples the input, and then upsamples 
 ![A picture of a u-net](/images/u-net.png)
 
 ## Notes on the implementation
-The implementation of stable diffusion has a lot of concepts that I've either not come across, or don't know how to do in PyTorch. So, think of this more of a list of points that I need to work through to
-truly appreciate what's going on here. Also, I won't mention any of the PyTorch methods that are seen in the article, since I'm still pretty new to PyTorch as a whole. It'd probably be good for me to take
-a tutorial course using it later on.
+Rather than making notes on the implementation of the original authors, for my purposes I believe
+it is sufficient to learn how to create a basic stable diffusion model using the HuggingFace API,
+and then work down the tree of abstraction.
 
-### Position embeddings
-Parameters of the neural network, the noise primarily, are shared across time, so the authors employ sinusoidal position embeddings to encode $t$, inspired by the transformer. The
-idea of this is that it makes the neural network "know" at which particular noise level (time step) we're operation on for each batch. From this section, key observations are:
-- I need to learn about **convolutions**,
-- so that I can learn about **transformers**,
-- so that I can learn about **position embeddings**.
+The corresponding tutorial and code can be found [here](https://towardsdatascience.com/stable-diffusion-using-hugging-face-501d8dbdd8) and [here](https://colab.research.google.com/drive/1vdpbeVIlY-9qHEhikuVl9k1SChExXXh-) respectively. Make sure you run the latter using the T4 GPU!
 
-Furthermore, I need to learn about residual blocks, which are probably connected to the next section.
+Firstly, the stable diffusers API seems to rely on the idea of a pipeline[^11], which we might
+elaborate upon later. For now, we use the pre-trained ```CompVis/stable-diffusion-v1-4``` pipeline.
 
-### ResNet / ConvNeXT block
-These form the core building block of our model. The DDPM authors employed a Wide ResNet block, but Phil Wang added support for a ConvNeXT block. Either can be used for the final U-Net architecture.
+### Brief recap of what a diffusion model is.
+The theory above was quite daunting, and full of notational badness, so we'll lay it out plain and
+simple here:
 
-Notes from looking at the code:
-- What is [group normalization](https://en.wikipedia.org/wiki/Convolutional_neural_network)?
-- What is a SiLU?
-- What is a [ConvNeXT block](https://arxiv.org/abs/2201.03545)?
-- What is a ResNet block?
+Stable diffusion models are a subset of diffsion models, also known as Latent Diffusion models.
+A Latent diffusion models were created to consume less memory, by doing the diffusion in a lower
+dimension space, known as a ```Latent``` Space. For more information, there is an article on this site
+on autoencoders and latent spaces.
 
-### Attention module
-Attention modules were added in between convolutional blocks by the authors. "Attention is the building block of the famous [Transformer architecture](https://arxiv.org/abs/1706.03762). Phil Wang used
-two variants of attention, regular multi-head self-attention (as used in the Transformer), and a [linear attention variant](https://github.com/lucidrains/linear-attention-transformer). The writers of the
-article recommend to read [this](https://jalammar.github.io/illustrated-transformer/) to understand more about transformers and attention modules.
+Latent diffusion models are trained to denoise Gaussian noise from an image at each time step $t$. To
+do this, they employ:
+- A text encoder, in this case a CLIP text encoder,
+- An autoencoder, in this case a variational auto encoder,
+- A U-Net
 
-### Group normalization
-The authors interleave the convolutional/attention layers of the U-Net with [group normalization](https://arxiv.org/abs/1803.08494). The writers of the article then define a ```Prenorm``` class, which
-is used to apply groupnorm before the attention layer. However, note there's a [debate](https://tnq177.github.io/data/transformers_without_tears.pdf) about whether to apply normalization before or after
-attention in Transformers.
+### What are CLIP Text Encoders?
+A CLIP text encoderx
 
-### Conditional U-Net
-We've now got the building blocks, so now we can define the whole neural network! Remember, the job of $\epsilon\_{\theta} (\mathbf{x}\_t , t)$ is to take in a batch of noisy images + noise levels, and
-output the noise added to the input. More formally, we take in a batch of noisy images of size ```(batch_size, num_channels, height, width)``` as well as a batch of noise levels of size ```(batch_size, 1)```,
-and then output a tensor of shape ```batch_size, num_channels, height, width)```.
 
-The network is built up as follows:
-- first, a convolutional layer is applied on the batch of noisy images, and position embeddings are computed for the noise levels
-- next, a sequence of downsampling stages are applied. Each downsampling stage consists of 2 ResNet/ConvNeXT blocks + groupnorm + attention + residual connection + a downsample operation
-  at the middle of the network, again ResNet or ConvNeXT blocks are applied, interleaved with attention
-- next, a sequence of upsampling stages are applied. Each upsampling stage consists of 2 ResNet/ConvNeXT blocks + groupnorm + attention + residual connection + an upsample operation
-- finally, a ResNet/ConvNeXT block followed by a convolutional layer is applied.
-
-The writers of the article as suggest to read the [following](http://karpathy.github.io/2019/04/25/recipe/), to understand how to best create neural networks.
-
-### Defining the forward process
-We define the forward process by gradually adding noise to an image, in a number of time steps $T$, using a **variance schedule**. The original paper used a linear scheduler, but it was
-revealed later on that a cosine schedule gave better results. Some key features of these schedulers seem to be:
-- cumulative variance variable,
-- an ```extract``` function, which allows us to extract the appropriate $t$ index for a batch of indicies,
-- converting a PIL image to a tensor, so that we may add noise, using a transform and reverse transform function,
-
-### Define a PyTorch Dataset + DataLoader
-Really just read [this](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html) article on PyTorch datasets, and [this](https://huggingface.co/docs/datasets/index) article for how to use the
-HuggingFace datasets in the code. The rest is explaned in the Colab document.
-
-### Sampling
-The process for sampling is summarised in the following manner:
-
-![Data sampling](/images/sampling.png)
-
-To generate new images from a diffusion model, we reverse the diffusion process: we start from $T$, where we sample pure noise from a Gaussian distribution, and then use our neural network to gradually
-denoise it, until $t=0$. Remember, the variance is known ahead of time.
-
-### Train the model and inference
-This is done using PyTorch. The training procedure seems to be pretty standard, similar to what was done
-using fastai. Question: What is inference?
 
 ### Follow up reads
 DDPM paper showed that diffusion models are promising for (un)conditional image generation. This has
@@ -234,7 +194,3 @@ are some important papers:
 
 [^10]: A [U-net](https://en.wikipedia.org/wiki/U-Net) is a [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) that was developed for biomedical
        image segmentation at the Computer Science Department of the University of Freiburg.
-
-[^11]: What are residual connections?
-
-[^12]: What is gradient flow?
