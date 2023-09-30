@@ -183,7 +183,7 @@ $$
 where $\Delta x = x - x\_0$, $\Delta y = y - y\_0$, and $\rho = \sqrt{(\Delta x)^2 + (\Delta y)^2}.
 
 As $(x,y)$ is near $(x\_0, y\_0)$, or $(x,y)$ is in the neighbourhood of $(x\_0, y\_0)$:
-
+xi
 $$
 o(\rho) << \rho << 1,
 $$
@@ -217,7 +217,7 @@ But, the existance of all partial derivatives does not guarantee the function be
 
 ### The chain rule
 A function is said to be sufficiently smooth if the function and as many of it's derivatives as
-required are continuous where they need to be.
+required are continuous where they need to be[^6].
 
 #### The chain rule for functions of single variable
 Suppose $y=y(x), x = x(u)$. Letting $y = Y(u)$, we have
@@ -231,7 +231,7 @@ $$
 
 We can derive the chain rule in the following way:
 
-Suppose that $y = y(x)$ and $x = x(u)$ are differentiable:
+Suppose that $y = y(x)$ and $x = x(u)$ are differentiable[^7]:
 $$
 dy = y\_x dx, \\\\
 dx = x\_u du, \\\\
@@ -276,12 +276,12 @@ $$
 f\_u = f\_x x\_u + f\_y y\_u, f\_v = f\_x x\_v + f\_y y\_v.
 $$
 
-#### How can we remember the chain rule?
+#### How can we remember the chain rule?[^8]
 We start we an example:
 $$
 \text{For } \space f = f(x,y), x = x(u,v), y=y(u,v), \\\\
 \frac{\partial f(x,y)}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial f}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \\\\
-\frac{\partial f(x,y)}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v} \\\\
+\frac{\partial f(x,y)}{\partial v} = \frac{\partial f}{\pnnartial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v} \\\\
 $$
 
 In Step 1, we put the function and the target variables in correct positions. For two intermediate
@@ -337,4 +337,14 @@ $$
 
 [^4]: Be sure to know how to prove these results in both a single variable and multi-variable context.
 
-[^5]: What?
+[^5]: In other words, if a function has all partial derivatives, and all those derivatives are
+      continuous, then it's differentiable.
+
+[^6]: A function is sufficiently smooth if it is differentiable a sufficient number of times.
+      For functions to be smooth, it (and it's differentials) needs to be differentiable and
+      continuous on the required interval.
+
+[^7]: In this question, we say that $y$ is our function, $u$ is our target variable, and
+      $x$ is the intermediate variable.
+
+[^8]: This is a bit magic.
