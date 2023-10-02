@@ -326,6 +326,94 @@ $$
 #### Example questions
 - For the partial differential equation: $x \frac{\partial u}{\partial x} - y \frac{\partial u}{\partial y} = 2x^2$ change the variables $(x,y)$ to $s = xy$, $t = \frac{x}{y}$.
 
+### Vectors and vector geometry
+We first note the following facts:
+- A scalar just has magnitude, while a vector has both magnitude and direction,
+- The magnitude of a vector $\mathbb{v}$ is given by $\| \mathbb{v} \| = \sqrt{v\_1^2, v\_2^2, v\_3^2}$.
+
+#### The dot-product and the cross-product
+Suppose we have two vectors,
+$$
+\mathbb{a} = a\_1 \mathbb{i} + a\_2 \mathbb{j} + a\_3 \mathbb{k}
+$$
+and
+$$
+\mathbb{b} = b\_1 \mathbb{i} + b\_2 \mathbb{j} + b\_3 \mathbb{k}.
+$$
+
+Then, the dot-product is given by:
+$$
+\mathbb{a} \dot \mathbb{b} = \|a\| \|b\| \cos \theta = a\_1 b\_1 + a\_2 b\_2 + a\_3 b\_3
+$$
+where $\theta = [0, \pi]$ is the angle between $\mathbb{a}$ and $\mathbb{b}$.
+
+The cross-product is given by:
+$$
+\mathbb{a} \cross \mathbb{b} = \|a\| \|b\| \sin \theta \mathbb{n} = \det \begin{matrix} i & j & k \\\\ a\_1 & a\_2 & a\_3 \\\\ b\_1 & b\_2 & b\_3 \end{matrix}
+$$
+
+where $\mathbb{n}$ is the normal of both $\mathbb{a}$ and $\mathbb{b}$.
+
+#### Parallel and perpendicular vectors
+If $\mathbb{a}$ and $\mathbb{b}$ are not the $\mathbb{0}$ vector, then:
+- $\mathbb{a}$ and $\mathbb{b}$ are perpendicular if and only if $\mathbb{a} \dot \mathbb{b} = 0$[^9],
+- $\mathbb{a}$ and $\mathbb{b}$ are parallel if and only if $mathbb{a} \cross \mathbb{b} = 0$[^10].
+
+#### The equation of a line and the equation of a plane
+The equation of a line is given by:
+$$
+\mathbb{r} = \mathbb{a} + t\mathbb{d}[^11]
+$$
+where $\mathbb{r}$ is a general point on the line, $\mathbb{a}$ is a point on the line, $\mathbb{d}$
+is a vector going along the line, and $t \in \mathbb{R}$ is just a scalar.
+
+The equation of a plane is given by:
+$$
+\mathbb{r} \dot \mathbb{n} = \mathbb{a} \dot \mathbb{n}[^12],
+$$
+where $\mathbb{a}$ is a point at the plane, $\mathbb{n}$ is the normal vector of the plane, and
+$\mathbb{r}$ is a general point at the plane.
+
+#### Equation of a tangent plane
+If $\mathbb{n}$ is the normal vector to a surface $S$ at a point $\mathbb{a}$, then the equation of
+the tangent plane to the surface $S$ at $\mathbb{a}$ is given by:
+$$
+\mathbb{r} \dot \mathbb{n} = \mathbb{a} \dot \mathbb{n}
+$$
+where $\mathbb{r}$ is a general point at the target plane.
+
+Some key points are:
+- The tangent plane to the surface at $\mathbb{a}$ passes the point $\mathbb{a}$,
+- The normal of the tangent plane is the same as the normal $\mathbb{n}$ of the surface at $\mathbb{a}$.
+
+Example problems:
+- Show that a line can be expressed as an intersection of two places.[^13]
+
+### Representation of curves
+The curve $C$ can be represented is parametric form, that is:
+$$
+\mathbb{r} = \mathbb{r}(t) = x(t) \mathbb{i} + y(t) \mathbb{j} + z(t) \mathbb{k},
+$$
+where $t \in [a, b]$.
+
+Examples:
+- How would you express $y = f(x), x \in [a,b]$ in a parametric form?
+- Consider a tiny fly buzzing around. How would you express it's position and trajectory at a time $t$?
+
+#### Tangent vector of a curve
+Consider $\mathbb{r} = \mathbb{r}(t)$, and the points $P$ and $Q$ on the curve, where:
+- P: $\mathbb{r}(t) = x(t) \mathbb{i} + y(t) \mathbb{j} + z(t) \mathbb{k}$,
+- Q: $\mathbb{r + \Delta t} = x(t + \Delta t) \mathbb{i} + y(t + \Delta t) \mathbb{j} + z(t + \Delta t) \mathbb{k}$.
+
+The tangent vector $T$ of the curve at P is:
+$$
+T = \lim\_{\Delta t \rightarrow 0} \frac{PQ}{\Delta t} = \lim\_{\Delta t \rightarrow 0} \frac{\mathbb{r}(t + \Delta t) - \mathbb{r}(t)}{\Delta t} = \frac{dx}{dt} \mathbb{i} + \frac{dy}{dt} \mathbb{j} + \frac{dz}{dt} \mathbb{k} \equiv \frac{d \mathbb{r}}{dt}.
+$$
+
+Notationally, we have the $T = \frac{d \mathbb{r}}{dt} = r' = r\_t$.
+
+In general, for a sufficiently smooth curve one can always have a parameterization for which $r' \neq 0$.
+
 [^1]: Question: Are all the functions we deal with in this course bijective functions? I'm assuming so, since he said in lecture a function maps one element in codomain to exactly one in the
       codomain. Did he say for every element in the domain?
 
@@ -348,3 +436,13 @@ $$
       $x$ is the intermediate variable.
 
 [^8]: This is a bit magic.
+
+[^9]: How would you go about proving this?
+
+[^10]: How would you go about proving this?
+
+[^11]: How would you go about proving this?
+
+[^12]: How would you go about proving this?
+
+[^13]: How would you prove this?
